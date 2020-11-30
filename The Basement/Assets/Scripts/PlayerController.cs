@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
             Attack(atkHorizontal, atkVertical);
             lastAttack = Time.time;
         }
-
         vel = new Vector3(horizontal, vertical, 0);
         rb.velocity = vel.normalized * speed;
         collectedText.text = "Atk = " + atkStat;

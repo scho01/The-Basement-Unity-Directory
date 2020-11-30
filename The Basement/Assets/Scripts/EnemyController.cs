@@ -28,8 +28,6 @@ public class EnemyController : MonoBehaviour
     public float attackInterval = 5f;
     GameObject attack;
     public bool attackExists = false;
-    private float mapSizeX = 8f;
-    private float mapSizeY = 4.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +80,6 @@ public class EnemyController : MonoBehaviour
 
     void Wander()
     {
-
         if (!chooseDir)
         {
             StartCoroutine(ChooseDirection());
