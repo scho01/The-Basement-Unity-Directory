@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class StickController : MonoBehaviour
 {
-    public bool isPlayer;
+//    public bool isPlayer;
     public int hitSpeed;
     float attackLength;
     public GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
-        if (isPlayer)
-            attackLength = 0.2f;
-        else
+//        if (isPlayer)
+//            attackLength = 0.2f;
+//        else
             attackLength = 1.5f;
         StartCoroutine(DeathDelay());
     }
@@ -30,15 +30,15 @@ public class StickController : MonoBehaviour
     IEnumerator DeathDelay()
     {
         yield return new WaitForSeconds(attackLength);
-        if (!isPlayer)
-            parent.GetComponent<EnemyController>().attackExists = false;
-        else
-            parent.GetComponent<PlayerController>().attackExists = true;
+//        if (!isPlayer)
+//            parent.GetComponent<EnemyController>().attackExists = false;
+//        else
+//            parent.GetComponent<PlayerController>().attackExists = true;
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (isPlayer)
+/*        if (isPlayer)
         {
             if (col.CompareTag("Enemy"))
             {
@@ -47,10 +47,10 @@ public class StickController : MonoBehaviour
         }
         else
         {
-            if (col.CompareTag("Player"))
+*/            if (col.CompareTag("PlayerHitBox"))
             {
-                col.gameObject.GetComponent<PlayerController>().Hit();
+                col.gameObject.GetComponentInParent<PlayerController>().Hit();
             }
-        }
+//        }
     }
 }

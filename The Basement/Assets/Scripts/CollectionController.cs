@@ -2,26 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Item
+{
+    public string itemName;
+    public string itemDescription;
+    public Sprite itemImage;
+}
+
 public class CollectionController : MonoBehaviour
 {
+    public Item item;
+    public float maxHealthMod;
+    public float healthMod;
+    public float moveSpeedMod;
+    public float dashCoolDownMod;
+    public float dashLengthMod;
+    public float attackSpeedMod;
+    public float attackDamageMod;
+    public bool hover;
+    private PlayerMovement player;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameObject.GetComponent<SpriteRenderer>().sprite = item.itemImage;
+        gameObject.AddComponent<PolygonCollider2D>();
+        gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (!hover)
         {
-            PlayerController.atkStat++;
-            Destroy(gameObject);
+            if (collision.CompareTag("Player"))
+            {
+                player.numItems++;
+                player.items.Add(gameObject);
+                hover = true;
+            }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (hover)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                player.numItems--;
+                player.items.Remove(gameObject);
+                hover = false;
+            }
+        }
+    }
+
+    public void Use()
+    {
+        PlayerController.maxHealth += maxHealthMod;
+        PlayerController.health += healthMod;
+        PlayerController.moveSpeed += moveSpeedMod;
+        PlayerController.dashCoolDown *= dashCoolDownMod;
+        PlayerController.dashLength += dashLengthMod;
+        PlayerController.attackSpeed *= attackSpeedMod;
+        PlayerController.attackDamage += attackDamageMod;
+        Destroy(gameObject);
     }
 }
