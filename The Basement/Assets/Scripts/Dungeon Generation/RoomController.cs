@@ -61,6 +61,7 @@ public class RoomController : MonoBehaviour
                 {
                     room.RemoveUnconnectedDoors();
                 }
+                UpdateRooms();
                 updatedRooms = true;
             }
             return;
@@ -118,12 +119,12 @@ public class RoomController : MonoBehaviour
                 currentLoadRoomData.Y * room.Height, 0);
             room.X = currentLoadRoomData.X;
             room.Y = currentLoadRoomData.Y;
-            room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;
+            room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;       //add to later
             room.transform.parent = transform;
             isLoadingRoom = false;
             if (loadedRooms.Count == 0)
             {
-                CameraController.instance.currRoom = room;
+                CameraController.instance.currRoom = room;      //need later
             }
             loadedRooms.Add(room);
         }
@@ -144,9 +145,38 @@ public class RoomController : MonoBehaviour
         return loadedRooms.Find(item => item.X == x && item.Y == y);
     }
 
+    public string GetRandomRoomName()
+    {
+        string[] possibleRooms = new string[]
+        {
+            "Empty",
+            "Basic"
+        };
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];
+    }
+
     public void OnPlayerEnterRoom(Room room)
     {
         CameraController.instance.currRoom = room;
         currRoom = room;
+        UpdateRooms();
+    }
+
+    private void UpdateRooms()
+    {
+        foreach(Room room in loadedRooms)
+        {
+            if (currRoom != room)
+                room.enemiesObject.SetActive(false);
+            else
+            {
+                room.enemiesObject.SetActive(true);
+                EnemyController[] enemyControllers = room.enemiesObject.GetComponentsInChildren<EnemyController>();
+                foreach (EnemyController ec in enemyControllers)
+                {
+                    ec.ForceIdle();
+                }
+            }
+        }
     }
 }

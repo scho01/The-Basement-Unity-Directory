@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3456373948732599458}
   - component: {fileID: 5565044602207267234}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: FireElemental
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,10 +29,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3239227443102990838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 3231790117576702525}
+  - {fileID: 7614321666353981042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -135785283
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -4973071976785375461, guid: 3e420662071a72e47a04709ff1281e60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,12 +100,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6887d18de4b6c46bb40fefdf19af4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   currentState: 0
   range: 5
   speed: 1
+  randomDir: {x: 0, y: 0, z: 0}
+  nextPos: {x: 0, y: 0, z: 0}
   health: 5
-  itemPrefab: {fileID: 1768393813266311650, guid: 8f8f6ef2f81a2564db90e8a4e4a9fb9b, type: 3}
+  itemPrefab:
+  - {fileID: 1768393813266311650, guid: 7c6c47939ffd4d542945c5aafc8a1fa2, type: 3}
+  - {fileID: 1768393813266311650, guid: 3f528f6a4e264ea4091544bbf7e12e26, type: 3}
+  - {fileID: 1768393813266311650, guid: a50121e2ed47b594db5c7ff574d08168, type: 3}
+  - {fileID: 1768393813266311650, guid: 908aacfd2d68c0849b399e2bc206a69d, type: 3}
+  - {fileID: 1768393813266311650, guid: c02766978af5f224c9227c967292083a, type: 3}
+  - {fileID: 1768393813266311650, guid: 6c38275ffabe02548abbb00c00319129, type: 3}
+  - {fileID: 1768393813266311650, guid: 6486a5ac8aaf5cc409c3d2faad69ebed, type: 3}
+  - {fileID: 1768393813266311650, guid: 4d9f81e96665a3d49acc65f2c5573a5b, type: 3}
   attackInterval: 5
+  invulnerable: 0
 --- !u!58 &3239227443102990839
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -118,9 +131,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022840738, y: -0.728364}
+  m_Offset: {x: -0.036, y: -0.75}
   serializedVersion: 2
-  m_Radius: 0.32742596
+  m_Radius: 0.285
 --- !u!50 &3456373948732599458
 Rigidbody2D:
   serializedVersion: 4
@@ -161,6 +174,79 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &5291421508433748414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7614321666353981042}
+  - component: {fileID: 3348667996341865580}
+  - component: {fileID: 5600930367024945869}
+  m_Layer: 0
+  m_Name: Flames
+  m_TagString: EnemyAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7614321666353981042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291421508433748414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3239227443102990841}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &3348667996341865580
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291421508433748414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.13, y: -0.25}
+      - {x: -0.215, y: -0.401}
+      - {x: 0.1, y: -0.401}
+--- !u!114 &5600930367024945869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291421508433748414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dd7e773cbfccb4992dfd2bf80f273b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: 0
 --- !u!1 &7967321024039687655
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,3 +321,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dd7e773cbfccb4992dfd2bf80f273b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: 0

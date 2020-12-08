@@ -9,23 +9,19 @@ public class PlayerController : MonoBehaviour
     public Text statsText;
     public static float maxHealth = 3;      // Maximum health
     public static float health = 3;         // Current health
-    public static float moveSpeed = 4;      // Walking speed
+    public static float moveSpeed = 3;      // Walking speed
     public static float dashCoolDown = 1f;  // Cooldown between dashes, modified by multiplying with fraction
     public static float dashLength = 0.2f;  // Dash duration (affects both dash distance and invuln duration)
     public static float attackSpeed = 1;    // Cooldown between attacks, modified by multiplying with fraction
     public static float attackDamage = 1;   // Damage dealt per hit
     public static bool invulnerable = false;
-    public GameObject phb;
 
     void Start()
     {
+        invulnerable = false;
         UpdateStatsText();
     }
 
-    void Update()
-    {
-
-    }
     /*    void Attack(float x, float y)
         {
             int angle = 0;
@@ -68,58 +64,58 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateStatsText()
     {
-        statsText.text = "HP = " + health + "/" + maxHealth + "\n"
-            + "MS = " + moveSpeed + "\n"
-            + "AD = " + attackDamage + "\n"
-            + "AS = " + attackSpeed + "\n"
-            + "DL = " + dashLength + "\n"
-            + "DCD = " + dashCoolDown + "\n"
-            + "I = " + invulnerable;
+        statsText.text = "Health = " + health + "/" + maxHealth + "\n"
+            + "Spd = " + moveSpeed + "\n"
+            + "Atk = " + attackDamage + "\n"
+            + "AtkSpd = " + attackSpeed + "\n"
+            + "DashTime = " + dashLength + "\n"
+            + "DashCD = " + dashCoolDown + "\n";
     }
 
-    public void Invulnerable(bool status)
+    private IEnumerator Hitstun(bool boss)
     {
-        if (status)
-        {
-            phb.SetActive(false);
-            invulnerable = true;
-        }
+        invulnerable = true;
+        if (!boss)
+            health -= 0.5f;
         else
-        {
-            invulnerable = false;
-            phb.SetActive(true);
-        }
+            health -= 1f;
         UpdateStatsText();
-    }
-
-    private IEnumerator Hitstun()
-    {
-        Invulnerable(true);
-        health--;
-        UpdateStatsText();
-        if (health < 1)
+        if (health <= 0)
         {
+            Die();
             yield break;
         }
         else
         {
             yield return new WaitForSeconds(1f);
-            Invulnerable(false);
+            invulnerable = false;
         }
     }
 
-    public void Hit()
+    public void Hit(bool boss)
     {
         if (!invulnerable)
         {
-            StartCoroutine(Hitstun());
-            if (health < 1)
-                Die();
+            StartCoroutine(Hitstun(boss));
         }
+    }
+
+    private void ResetStats()
+    {
+        maxHealth = 3;
+        health = 3;
+        moveSpeed = 3;
+        dashCoolDown = 1f;
+        dashLength = 0.2f;
+        attackSpeed = 1;
+        attackDamage = 1;
+        UpdateStatsText();
     }
 
     private void Die()
     {
-        Destroy(gameObject);
+        ResetStats();
+        DungeonGenerator.reset = true;
+        SceneManager.LoadScene(0);
     }
 }

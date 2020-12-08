@@ -60,7 +60,10 @@ public class CollectionController : MonoBehaviour
     public void Use()
     {
         PlayerController.maxHealth += maxHealthMod;
-        PlayerController.health += healthMod;
+        if (PlayerController.health + healthMod < PlayerController.maxHealth)
+            PlayerController.health += healthMod;
+        else
+            PlayerController.health = PlayerController.maxHealth;
         PlayerController.moveSpeed += moveSpeedMod;
         PlayerController.dashCoolDown *= dashCoolDownMod;
         PlayerController.dashLength += dashLengthMod;

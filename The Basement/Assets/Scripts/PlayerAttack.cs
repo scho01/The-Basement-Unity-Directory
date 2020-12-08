@@ -8,5 +8,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
             collision.gameObject.GetComponent<EnemyController>().Hit();
+        else if (collision.CompareTag("Boss"))
+            collision.gameObject.GetComponent<BossController>().Hit();
     }
 }

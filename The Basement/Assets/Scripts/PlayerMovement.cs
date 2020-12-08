@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public int numItems = 0;
     public List<GameObject> items;
     private Vector3 bcoffset = new Vector3(0, -0.5f, 0);
+    private string itemName = "";
+    private string itemDescription = "";
 
     void Start()
     {
@@ -107,11 +109,11 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash()
     {
-        pc.Invulnerable(true);
+        PlayerController.invulnerable = true;
         cspeed = dashSpeed;
         yield return new WaitForSeconds(PlayerController.dashLength);
         cspeed = PlayerController.moveSpeed;
-        pc.Invulnerable(false);
+        PlayerController.invulnerable = false;
         lastDash = Time.time;
     }
 
@@ -143,8 +145,18 @@ public class PlayerMovement : MonoBehaviour
             if (press)
             {
                 itemText.enabled = true;
-                Item closest = FindClosestItem().GetComponent<CollectionController>().item;
-                itemText.text = closest.itemName + ": \n \n" + closest.itemDescription;
+                GameObject closest = FindClosestItem();
+                if (closest.CompareTag("Ladder"))
+                {
+                    itemName = closest.GetComponent<LadderController>().ladderName;
+                    itemDescription = closest.GetComponent<LadderController>().ladderDescription;
+                }
+                else
+                {
+                    itemName = closest.GetComponent<CollectionController>().item.itemName;
+                    itemDescription = closest.GetComponent<CollectionController>().item.itemDescription;
+                }
+                itemText.text = itemName + ": \n" + itemDescription;
             }
             else
             {
@@ -162,7 +174,14 @@ public class PlayerMovement : MonoBehaviour
         if (numItems > 0)
         {
             GameObject closest = FindClosestItem();
-            closest.GetComponent<CollectionController>().Use();
+            if (closest.CompareTag("Ladder"))
+            {
+                closest.GetComponent<LadderController>().Use();
+            }
+            else
+            {
+                closest.GetComponent<CollectionController>().Use();
+            }
             pc.UpdateStatsText();
         }
     }

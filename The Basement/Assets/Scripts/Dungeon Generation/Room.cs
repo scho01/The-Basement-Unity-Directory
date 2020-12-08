@@ -25,7 +25,8 @@ public class Room : MonoBehaviour
     public Wall lWall;
     public Wall rWall;
     public Wall uWall;
-    //public List<Wall> walls = new List<Wall>();
+
+    public GameObject enemiesObject;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class Room : MonoBehaviour
             Debug.Log("wrong scene");
             return;
         }
+        enemiesObject = transform.GetChild(0).gameObject;
         Door[] ds = GetComponentsInChildren<Door>();
         foreach (Door d in ds)
         {
@@ -168,7 +170,6 @@ public class Room : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision");
         if (collision.CompareTag("Player"))
         {
             RoomController.instance.OnPlayerEnterRoom(this);

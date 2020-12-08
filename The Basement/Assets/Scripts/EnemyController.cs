@@ -17,22 +17,26 @@ public class EnemyController : MonoBehaviour
 {
     GameObject player;
     private Rigidbody2D rb;
-    private Animator anim;
+    public Animator anim;
     public EnemyState currentState = EnemyState.Wander;
     public float range = 5;
     public float speed = 1;
     private bool chooseDir = false;
-    private Vector3 randomDir;
-    private Vector3 nextPos;
+    public Vector3 randomDir;
+    public Vector3 nextPos;
     public float health = 5;
-    public GameObject itemPrefab;
-    private float lastAttack;
+    public GameObject[] itemPrefab;
+    private float lastAttack = 0f;
     public float attackInterval = 5f;
-    private float xMin = -7.8f;
-    private float xMax = 7.8f;
-    private float yMin = -3.7f;
-    private float yMax = 4.4f;
-    private bool invulnerable = false;
+    private readonly float xMin = -7.8f;
+    private readonly float xMax = 7.8f;
+    private readonly float yMin = -3.7f;
+    private readonly float yMax = 4.4f;
+    public bool invulnerable = false;
+    private float idleStartTime;
+    private float idleLength;
+    private bool playerInRange;
+    private readonly float dropChance = 5.0f;
 
     void Start()
     {
@@ -43,18 +47,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsPlayerInRange(range) && currentState != EnemyState.Die && currentState != EnemyState.Hit && currentState != EnemyState.Attack)
-        {
-            if (currentState == EnemyState.Idle)
-                anim.SetBool("walk", true);
-            currentState = EnemyState.Follow;
-        }
-        else if (!IsPlayerInRange(range) && currentState != EnemyState.Die && currentState != EnemyState.Hit && currentState != EnemyState.Wander)
-        {
-            anim.SetBool("walk", false);
-            anim.SetBool("attack", false);
-            currentState = EnemyState.Idle;
-        }
+        playerInRange = IsPlayerInRange(range);
         switch(currentState)
         {
             case (EnemyState.Idle):
@@ -72,7 +65,6 @@ public class EnemyController : MonoBehaviour
             case (EnemyState.Hit):
                 break;
             case (EnemyState.Die):
-                Die();
                 break;
         }
     }
@@ -85,43 +77,53 @@ public class EnemyController : MonoBehaviour
             transform.rotation = Quaternion.identity;
     }
 
-    private IEnumerator ChooseDirection()
-    {
-        anim.SetBool("walk", false);
-        chooseDir = true;
-        yield return new WaitForSeconds(Random.Range(2f, 8f));
-        randomDir = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0);
-        //randomDir = new Vector3(0, 0, Random.Range(0, 360));
-        //Quaternion nextRotation = Quaternion.Euler(randomDir);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, nextRotation, Random.Range(0.5f, 3f));
-        ChangeDirection(randomDir);
-        currentState = EnemyState.Wander;
-        chooseDir = false;
-        anim.SetBool("walk", true);
-    }
-
     private bool IsPlayerInRange(float range)
     {
+        if (player == null)
+            return false;
         return Vector3.Distance(transform.position, player.transform.position) <= range;
     }
 
     void Idle()
     {
+        if (playerInRange)
+        {
+            //lastAttack = Time.time;
+            anim.SetBool("walk", true);
+            currentState = EnemyState.Follow;
+            return;
+        }
         if (!chooseDir)
         {
-            StartCoroutine(ChooseDirection());
+            anim.SetBool("walk", false);
+            chooseDir = true;
+            idleLength = Random.Range(2f, 8f);
+            randomDir = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0);
+            idleStartTime = Time.time;
+        }
+        else
+        {
+            if (Time.time > idleStartTime + idleLength)
+            {
+                ChangeDirection(randomDir + transform.parent.position);
+                currentState = EnemyState.Wander;
+                anim.SetBool("walk", true);
+                chooseDir = false;
+            }
         }
     }
 
     void Wander()
     {
-        if (IsPlayerInRange(range))
+        if (playerInRange)
         {
-            lastAttack = Time.time;
+            //lastAttack = Time.time;
             currentState = EnemyState.Follow;
+            anim.SetBool("walk", true);
+            return;
         }
-        nextPos = randomDir - transform.position;
-        if (nextPos.x > 0.3f || nextPos.y > 0.3f)
+        nextPos = randomDir - transform.localPosition;
+        if (Vector3.Distance(randomDir, transform.localPosition) > 0.2f)
             rb.MovePosition(transform.position + nextPos.normalized * speed * Time.deltaTime);
         else
         {
@@ -153,6 +155,14 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
+        if (!playerInRange)
+        {
+            anim.SetBool("walk", false);
+            anim.SetBool("attack", false);
+            chooseDir = false;
+            currentState = EnemyState.Idle;
+            return;
+        }
         if (currentState != EnemyState.Attack)
         {
             ChangeDirection(player.transform.position);
@@ -173,8 +183,8 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("damage", false);
         yield return new WaitForSeconds(0.617f);
         speed = pspeed;
-        invulnerable = false;
         currentState = EnemyState.Follow;
+        invulnerable = false;
     }
 
     public void Hit()
@@ -183,17 +193,47 @@ public class EnemyController : MonoBehaviour
         {
             health -= PlayerController.attackDamage;
             if (health <= 0)
-            {
-                currentState = EnemyState.Die;
-                Die();
-            }
-            StartCoroutine(Hitstun());
+                StartCoroutine(Die());
+            else
+                StartCoroutine(Hitstun());
         }
     }
 
-    void Die()
+    public void ForceIdle()
     {
-        Instantiate(itemPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+        if (health > 0)
+        {
+            anim.SetBool("walk", false);
+            anim.SetBool("attack", false);
+            anim.SetBool("damage", false);
+            if (transform.childCount > 0)
+                transform.GetChild(0).gameObject.SetActive(false);
+            invulnerable = false;
+            chooseDir = false;
+            currentState = EnemyState.Idle;
+        }
+        else
+        {
+            if (invulnerable)
+            {
+                if (Random.Range(0f, 10f) > dropChance)
+                    Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator Die()
+    {
+        invulnerable = true;
+        currentState = EnemyState.Die;
+        anim.SetBool("die", true);
+        yield return null;
+        anim.SetBool("die", false);
+        yield return new WaitForSeconds(0.817f);
+        if (Random.Range(0f, 10f) > dropChance)
+            Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
+        invulnerable = false;
         Destroy(gameObject);
     }
 }

@@ -22,6 +22,7 @@ public class DungeonCrawlerController : MonoBehaviour
     };
     public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData)
     {
+        positionsVisited = new List<Vector2Int>();
         List<DungeonCrawler> dungeonCrawlers = new List<DungeonCrawler>();
         for (int i = 0; i < dungeonData.numberOfCrawlers; i++)
         {
