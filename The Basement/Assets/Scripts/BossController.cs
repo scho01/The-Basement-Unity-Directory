@@ -20,13 +20,18 @@ public class BossController : MonoBehaviour
     public BossState currentState = BossState.Idle;
     public float range = 5;
     public float speed = 2;
-    public float health = 50;
-    public GameObject itemPrefab;
+    public float health = 30;
+    public GameObject[] itemPrefab;
     private float lastAttack = 0f;
     public float attackInterval = 3.5f;
     private bool invulnerable = false;
     private bool playerInRange = false;
+    private readonly float dropChance = 5.0f;
     private int attackNumber = 0;
+    public float[] attackTime;
+    public float hitTime;
+    public float dieTime;
+    public GameObject projectile;
     public GameObject ladderPrefab;
 
     void Start()
@@ -83,6 +88,16 @@ public class BossController : MonoBehaviour
         }
     }
 
+    /*
+    Quaternion AttackDirection()
+    {
+        Vector2 direction = player.transform.position - this.transform.position;
+        this.transform.right = direction;
+        Vector3 upward = new Vector3(0, 0, 1);
+        Quaternion rotation = Quaternion.LookRotation(this.transform.forward, upward);
+        return rotation;
+    }
+*/
     IEnumerator Attacking()
     {
         currentState = BossState.Attack;
@@ -92,9 +107,16 @@ public class BossController : MonoBehaviour
         yield return null;
         anim.SetBool("attack" + attackNumber, false);
         if (attackNumber == 1)
-            yield return new WaitForSeconds(1.85f);
+            yield return new WaitForSeconds(attackTime[0]);
+        else if (attackNumber == 2)
+            yield return new WaitForSeconds(attackTime[1]);
         else
-            yield return new WaitForSeconds(2.017f);
+        {
+            GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+            proj.transform.parent = gameObject.transform;
+            proj.transform.localPosition = new Vector3(0.5f, 0, 0);
+            yield return new WaitForSeconds(attackTime[2]);
+        }
         currentState = BossState.Follow;
     }
 
@@ -120,14 +142,14 @@ public class BossController : MonoBehaviour
             speed = 0;
             yield return null;
             anim.SetBool("damage", false);
-            yield return new WaitForSeconds(0.267f);
+            yield return new WaitForSeconds(hitTime);
             speed = pspeed;
             invulnerable = false;
             currentState = BossState.Follow;
         }
         else
         {
-            yield return new WaitForSeconds(0.267f);
+            yield return new WaitForSeconds(hitTime);
             invulnerable = false;
         }
     }
@@ -151,10 +173,11 @@ public class BossController : MonoBehaviour
         anim.SetBool("die", true);
         yield return null;
         anim.SetBool("die", false);
-        yield return new WaitForSeconds(1.017f);
-        invulnerable = false;
-        Instantiate(itemPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(dieTime);
+        if (Random.Range(0f, 10f) > dropChance)
+            Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
         Instantiate(ladderPrefab, transform.parent.position, Quaternion.identity);
+        invulnerable = false;
         Destroy(gameObject);
     }
 }

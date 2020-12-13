@@ -1,0 +1,1300 @@
+fileFormatVersion: 2
+guid: 389f5993bc473aa46bec8953ae36a122
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7381333775546422851
+    second: Ice Elemental Sprite Sheet_0
+  - first:
+      213: -7686429857729352408
+    second: Ice Elemental Sprite Sheet_1
+  - first:
+      213: -6828973356530945835
+    second: Ice Elemental Sprite Sheet_2
+  - first:
+      213: 5026707513732467135
+    second: Ice Elemental Sprite Sheet_3
+  - first:
+      213: 5193833191135435937
+    second: Ice Elemental Sprite Sheet_4
+  - first:
+      213: 673811828646780583
+    second: Ice Elemental Sprite Sheet_5
+  - first:
+      213: 8165072594900692464
+    second: Ice Elemental Sprite Sheet_6
+  - first:
+      213: -6676578379241677303
+    second: Ice Elemental Sprite Sheet_7
+  - first:
+      213: 6976048445221471870
+    second: Ice Elemental Sprite Sheet_8
+  - first:
+      213: 886789472154937278
+    second: Ice Elemental Sprite Sheet_9
+  - first:
+      213: -5664261054340651736
+    second: Ice Elemental Sprite Sheet_10
+  - first:
+      213: -3353415945462110168
+    second: Ice Elemental Sprite Sheet_11
+  - first:
+      213: 7334525650028827298
+    second: Ice Elemental Sprite Sheet_12
+  - first:
+      213: 3643860121731720033
+    second: Ice Elemental Sprite Sheet_13
+  - first:
+      213: -1389804309524608022
+    second: Ice Elemental Sprite Sheet_14
+  - first:
+      213: -7542852253010742444
+    second: Ice Elemental Sprite Sheet_15
+  - first:
+      213: -4073819702154014564
+    second: Ice Elemental Sprite Sheet_16
+  - first:
+      213: 760436501342412861
+    second: Ice Elemental Sprite Sheet_17
+  - first:
+      213: -5339218127934025507
+    second: Ice Elemental Sprite Sheet_18
+  - first:
+      213: -7294189498264944855
+    second: Ice Elemental Sprite Sheet_19
+  - first:
+      213: 2210980541301044072
+    second: Ice Elemental Sprite Sheet_20
+  - first:
+      213: -47383463167084927
+    second: Ice Elemental Sprite Sheet_21
+  - first:
+      213: -1718010988845553064
+    second: Ice Elemental Sprite Sheet_22
+  - first:
+      213: -3903461588913724162
+    second: Ice Elemental Sprite Sheet_23
+  - first:
+      213: 9136456055516707953
+    second: Ice Elemental Sprite Sheet_24
+  - first:
+      213: 3514338627475268933
+    second: Ice Elemental Sprite Sheet_25
+  - first:
+      213: 842435985274796990
+    second: Ice Elemental Sprite Sheet_26
+  - first:
+      213: -7723725304904649985
+    second: Ice Elemental Sprite Sheet_27
+  - first:
+      213: -8915129248326861575
+    second: Ice Elemental Sprite Sheet_28
+  - first:
+      213: -5985084542330741681
+    second: Ice Elemental Sprite Sheet_29
+  - first:
+      213: 8180132504757043399
+    second: Ice Elemental Sprite Sheet_30
+  - first:
+      213: -4659211412249006372
+    second: Ice Elemental Sprite Sheet_31
+  - first:
+      213: -3293983682614628388
+    second: Ice Elemental Sprite Sheet_32
+  - first:
+      213: 2064113454844302616
+    second: Ice Elemental Sprite Sheet_33
+  - first:
+      213: -359767581661208792
+    second: Ice Elemental Sprite Sheet_34
+  - first:
+      213: -1015388384109169470
+    second: Ice Elemental Sprite Sheet_35
+  - first:
+      213: 7093831519039462778
+    second: Ice Elemental Sprite Sheet_36
+  - first:
+      213: -1415686581970640026
+    second: Ice Elemental Sprite Sheet_37
+  - first:
+      213: -6739081429082976859
+    second: Ice Elemental Sprite Sheet_38
+  - first:
+      213: 1634754548379928470
+    second: Ice Elemental Sprite Sheet_39
+  - first:
+      213: -3745969663915563012
+    second: Ice Elemental Sprite Sheet_40
+  - first:
+      213: 8658906413734958230
+    second: Ice Elemental Sprite Sheet_41
+  - first:
+      213: -3000180199264780868
+    second: Ice Elemental Sprite Sheet_42
+  - first:
+      213: -7826832489590238014
+    second: Ice Elemental Sprite Sheet_43
+  - first:
+      213: 1805262721473925404
+    second: Ice Elemental Sprite Sheet_44
+  - first:
+      213: -1191909547502992114
+    second: Ice Elemental Sprite Sheet_45
+  - first:
+      213: 8541171626700577135
+    second: Ice Elemental Sprite Sheet_46
+  - first:
+      213: -2547861244819099251
+    second: Ice Elemental Sprite Sheet_47
+  - first:
+      213: 7046270085287785166
+    second: Ice Elemental Sprite Sheet_48
+  - first:
+      213: 2613964310104962139
+    second: Ice Elemental Sprite Sheet_49
+  - first:
+      213: 1428589217795751349
+    second: Ice Elemental Sprite Sheet_50
+  - first:
+      213: -8610126770952159209
+    second: Ice Elemental Sprite Sheet_51
+  - first:
+      213: 545746033463635318
+    second: Ice Elemental Sprite Sheet_52
+  - first:
+      213: -5532304173175466731
+    second: Ice Elemental Sprite Sheet_53
+  - first:
+      213: -4152959213000256607
+    second: Ice Elemental Sprite Sheet_54
+  - first:
+      213: 2770818841646688048
+    second: Ice Elemental Sprite Sheet_55
+  - first:
+      213: 7060830026458925912
+    second: Ice Elemental Sprite Sheet_56
+  - first:
+      213: -1516614749059920975
+    second: Ice Elemental Sprite Sheet_57
+  - first:
+      213: -4745244912804867363
+    second: Ice Elemental Sprite Sheet_58
+  - first:
+      213: -7382574460368682996
+    second: Ice Elemental Sprite Sheet_59
+  - first:
+      213: -5580371820457436999
+    second: Ice Elemental Sprite Sheet_60
+  - first:
+      213: -6828195624265744721
+    second: Ice Elemental Sprite Sheet_61
+  - first:
+      213: 8271917095623959282
+    second: Ice Elemental Sprite Sheet_62
+  - first:
+      213: -7306049947666589136
+    second: Ice Elemental Sprite Sheet_63
+  - first:
+      213: -6061407637831241718
+    second: Ice Elemental Sprite Sheet_64
+  - first:
+      213: -8646810242718211370
+    second: Ice Elemental Sprite Sheet_65
+  - first:
+      213: 7912341358983410234
+    second: Ice Elemental Sprite Sheet_66
+  - first:
+      213: -492758255275092594
+    second: Ice Elemental Sprite Sheet_67
+  - first:
+      213: 9026173025900330826
+    second: Ice Elemental Sprite Sheet_68
+  - first:
+      213: -2037691126601134683
+    second: Ice Elemental Sprite Sheet_69
+  - first:
+      213: 1391690937875344903
+    second: Ice Elemental Sprite Sheet_70
+  - first:
+      213: 4983572665478724389
+    second: Ice Elemental Sprite Sheet_71
+  - first:
+      213: -8330507590535755638
+    second: Ice Elemental Sprite Sheet_72
+  - first:
+      213: -2607796508229076377
+    second: Ice Elemental Sprite Sheet_73
+  - first:
+      213: -4538351623904608655
+    second: Ice Elemental Sprite Sheet_74
+  - first:
+      213: -6894827691638929627
+    second: Ice Elemental Sprite Sheet_75
+  - first:
+      213: 1682455056436065622
+    second: Ice Elemental Sprite Sheet_76
+  - first:
+      213: -6728753968786655044
+    second: Ice Elemental Sprite Sheet_77
+  - first:
+      213: 1537614719013434149
+    second: Ice Elemental Sprite Sheet_78
+  - first:
+      213: -5203300111250953206
+    second: Ice Elemental Sprite Sheet_79
+  - first:
+      213: 3172469541669866202
+    second: Ice Elemental Sprite Sheet_80
+  - first:
+      213: 3880332209216961334
+    second: Ice Elemental Sprite Sheet_81
+  - first:
+      213: -7323536342977048073
+    second: Ice Elemental Sprite Sheet_82
+  - first:
+      213: 6012658551828692687
+    second: Ice Elemental Sprite Sheet_83
+  - first:
+      213: 1941586314727818116
+    second: Ice Elemental Sprite Sheet_84
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db966f30a0c309990800000000000000
+      internalID: -7381333775546422851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82de513d4c0545590800000000000000
+      internalID: -7686429857729352408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0bd57e9ec9a31a0800000000000000
+      internalID: -6828973356530945835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb98fc1e9d372c540800000000000000
+      internalID: 5026707513732467135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1acd24ce4c3341840800000000000000
+      internalID: 5193833191135435937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae92f3c94cd95900800000000000000
+      internalID: 673811828646780583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd2550c34a205170800000000000000
+      internalID: 8165072594900692464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90e1f3e86570853a0800000000000000
+      internalID: -6676578379241677303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e768759a917efc060800000000000000
+      internalID: 6976048445221471870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7e95693528e4c00800000000000000
+      internalID: 886789472154937278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82522f4e4908461b0800000000000000
+      internalID: -5664261054340651736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828a99af6f54671d0800000000000000
+      internalID: -3353415945462110168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a295fdf73879c560800000000000000
+      internalID: 7334525650028827298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163e7078977919230800000000000000
+      internalID: 3643860121731720033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb8a7f085c66bce0800000000000000
+      internalID: -1389804309524608022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4533a02f6d7625790800000000000000
+      internalID: -7542852253010742444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c905f1e9092e677c0800000000000000
+      internalID: -4073819702154014564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3061c018fc9d8a00800000000000000
+      internalID: 760436501342412861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd09a2aa66947e5b0800000000000000
+      internalID: -5339218127934025507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f788f2c45d5ca90800000000000000
+      internalID: -7294189498264944855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863bc89861bfeae10800000000000000
+      internalID: 2210980541301044072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186b2b5cdf8a75ff0800000000000000
+      internalID: -47383463167084927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85aa4a9ab166828e0800000000000000
+      internalID: -1718010988845553064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef46a66cd5e14d9c0800000000000000
+      internalID: -3903461588913724162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c3a0f10663bce70800000000000000
+      internalID: 9136456055516707953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545e817ac5075c030800000000000000
+      internalID: 3514338627475268933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb7f40b01fe0bb00800000000000000
+      internalID: 842435985274796990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2767ad1c0dfc490800000000000000
+      internalID: -7723725304904649985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc38cade29174480800000000000000
+      internalID: -8915129248326861575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cd1bfa155b0fca0800000000000000
+      internalID: -5985084542330741681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c08ba14c2ba58170800000000000000
+      internalID: 8180132504757043399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdea377f7e7275fb0800000000000000
+      internalID: -4659211412249006372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf62ddfa4b6942d0800000000000000
+      internalID: -3293983682614628388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8155914404435ac10800000000000000
+      internalID: 2064113454844302616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fd1656a49d10bf0800000000000000
+      internalID: -359767581661208792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c47d18f4ad98e1f0800000000000000
+      internalID: -1015388384109169470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d11dc8e2a527260800000000000000
+      internalID: 7093831519039462778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6636a58ed887a5ce0800000000000000
+      internalID: -1415686581970640026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5adc31b3529f972a0800000000000000
+      internalID: -6739081429082976859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697c327b990dfa610800000000000000
+      internalID: 1634754548379928470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf76cea0074a30cc0800000000000000
+      internalID: -3745969663915563012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6941606a18d9a2870800000000000000
+      internalID: 8658906413734958230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Elemental Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd79a021083d56d0800000000000000
+      internalID: -3000180199264780868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -37,6 +37,11 @@ public class EnemyController : MonoBehaviour
     private float idleLength;
     private bool playerInRange;
     private readonly float dropChance = 5.0f;
+    public float attackTime;
+    public float hitTime;
+    public float dieTime;
+    public bool ranged;
+    public GameObject projectile;
 
     void Start()
     {
@@ -147,9 +152,15 @@ public class EnemyController : MonoBehaviour
         currentState = EnemyState.Attack;
         lastAttack = Time.time;
         anim.SetBool("attack", true);
+        if (ranged)
+        {
+            GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+            proj.transform.parent = gameObject.transform;
+            proj.transform.localPosition = new Vector3(0.5f, 0, 0);
+        }
         yield return null;
         anim.SetBool("attack", false);
-        yield return new WaitForSeconds(1.35f);
+        yield return new WaitForSeconds(attackTime);
         currentState = EnemyState.Follow;
     }
 
@@ -163,11 +174,14 @@ public class EnemyController : MonoBehaviour
             currentState = EnemyState.Idle;
             return;
         }
-        if (currentState != EnemyState.Attack)
+        ChangeDirection(player.transform.position);
+        if (ranged)
         {
-            ChangeDirection(player.transform.position);
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            rb.velocity = Vector3.zero;
+            anim.SetBool("walk", false);
         }
+        else
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         if (Time.time > lastAttack + attackInterval)
             StartCoroutine(Attacking());
     }
@@ -181,7 +195,7 @@ public class EnemyController : MonoBehaviour
         speed = 0;
         yield return null;
         anim.SetBool("damage", false);
-        yield return new WaitForSeconds(0.617f);
+        yield return new WaitForSeconds(hitTime);
         speed = pspeed;
         currentState = EnemyState.Follow;
         invulnerable = false;
@@ -230,7 +244,7 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("die", true);
         yield return null;
         anim.SetBool("die", false);
-        yield return new WaitForSeconds(0.817f);
+        yield return new WaitForSeconds(dieTime);
         if (Random.Range(0f, 10f) > dropChance)
             Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
         invulnerable = false;
