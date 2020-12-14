@@ -28,6 +28,8 @@ public class Room : MonoBehaviour
 
     public GameObject enemiesObject;
 
+    public bool bossRoom;
+
     private void Start()
     {
         if (RoomController.instance == null)

@@ -15,6 +15,7 @@ public enum EnemyState
 
 public class EnemyController : MonoBehaviour
 {
+    public string enemyInitial;
     GameObject player;
     private Rigidbody2D rb;
     public Animator anim;
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour
     public Vector3 nextPos;
     public float health = 5;
     public GameObject[] itemPrefab;
+    public float[] dropRates;
     private float lastAttack = 0f;
     public float attackInterval = 5f;
     private readonly float xMin = -7.8f;
@@ -37,8 +39,10 @@ public class EnemyController : MonoBehaviour
     private float idleLength;
     private bool playerInRange;
     private readonly float dropChance = 5.0f;
+    public float windUpTime;
     public float attackTime;
     public float hitTime;
+    public float dieSoundTime;
     public float dieTime;
     public bool ranged;
     public GameObject projectile;
@@ -160,7 +164,9 @@ public class EnemyController : MonoBehaviour
         }
         yield return null;
         anim.SetBool("attack", false);
-        yield return new WaitForSeconds(attackTime);
+        yield return new WaitForSeconds(windUpTime);
+        AudioController.instance.Play(enemyInitial + "Atk");
+        yield return new WaitForSeconds(attackTime - windUpTime);
         currentState = EnemyState.Follow;
     }
 
@@ -174,14 +180,14 @@ public class EnemyController : MonoBehaviour
             currentState = EnemyState.Idle;
             return;
         }
-        ChangeDirection(player.transform.position);
-        if (ranged)
+        if (currentState != EnemyState.Attack)
         {
-            rb.velocity = Vector3.zero;
-            anim.SetBool("walk", false);
+            ChangeDirection(player.transform.position);
+            if (ranged)
+                transform.position = Vector2.MoveTowards(transform.position, new Vector3(transform.position.x + (1f/(transform.position.x - player.transform.position.x)), player.transform.position.y, 0), speed * Time.deltaTime);
+            else
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
-        else
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         if (Time.time > lastAttack + attackInterval)
             StartCoroutine(Attacking());
     }
@@ -189,16 +195,24 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Hitstun()
     {
         invulnerable = true;
-        currentState = EnemyState.Hit;
-        anim.SetBool("damage", true);
-        float pspeed = speed;
-        speed = 0;
-        yield return null;
-        anim.SetBool("damage", false);
-        yield return new WaitForSeconds(hitTime);
-        speed = pspeed;
-        currentState = EnemyState.Follow;
-        invulnerable = false;
+        if (currentState != EnemyState.Attack)
+        {
+            currentState = EnemyState.Hit;
+            anim.SetBool("damage", true);
+            float pspeed = speed;
+            speed = 0;
+            yield return null;
+            anim.SetBool("damage", false);
+            yield return new WaitForSeconds(hitTime);
+            speed = pspeed;
+            invulnerable = false;
+            currentState = EnemyState.Follow;
+        }
+        else
+        {
+            yield return new WaitForSeconds(hitTime);
+            invulnerable = false;
+        }
     }
 
     public void Hit()
@@ -244,9 +258,18 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("die", true);
         yield return null;
         anim.SetBool("die", false);
-        yield return new WaitForSeconds(dieTime);
-        if (Random.Range(0f, 10f) > dropChance)
-            Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(dieSoundTime);
+        AudioController.instance.Play(enemyInitial + "Die");
+        yield return new WaitForSeconds(dieTime - dieSoundTime);
+        float drop = Random.Range(0f, 1f);
+        for (int i = 0; i < dropRates.Length; i++)
+        {
+            if (drop <= dropRates[i])
+            {
+                Instantiate(itemPrefab[i], (transform.position + transform.position + player.transform.position)/3, Quaternion.identity);
+                break;
+            }
+        }
         invulnerable = false;
         Destroy(gameObject);
     }

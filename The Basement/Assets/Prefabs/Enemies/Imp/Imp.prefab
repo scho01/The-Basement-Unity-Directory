@@ -98,26 +98,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6887d18de4b6c46bb40fefdf19af4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyInitial: I
   anim: {fileID: 5565044602207267234}
   currentState: 0
   range: 7
-  speed: 0.5
+  speed: 1
   randomDir: {x: 0, y: 0, z: 0}
   nextPos: {x: 0, y: 0, z: 0}
   health: 9
   itemPrefab:
+  - {fileID: 1768393813266311650, guid: e3a47874567b8604dacadd14c06dc6a2, type: 3}
   - {fileID: 1768393813266311650, guid: 7c6c47939ffd4d542945c5aafc8a1fa2, type: 3}
-  - {fileID: 1768393813266311650, guid: 3f528f6a4e264ea4091544bbf7e12e26, type: 3}
-  - {fileID: 1768393813266311650, guid: a50121e2ed47b594db5c7ff574d08168, type: 3}
-  - {fileID: 1768393813266311650, guid: 908aacfd2d68c0849b399e2bc206a69d, type: 3}
-  - {fileID: 1768393813266311650, guid: c02766978af5f224c9227c967292083a, type: 3}
-  - {fileID: 1768393813266311650, guid: 6c38275ffabe02548abbb00c00319129, type: 3}
-  - {fileID: 1768393813266311650, guid: 6486a5ac8aaf5cc409c3d2faad69ebed, type: 3}
-  - {fileID: 1768393813266311650, guid: 4d9f81e96665a3d49acc65f2c5573a5b, type: 3}
+  - {fileID: 1768393813266311650, guid: aa236c4942dfc4e40a77b7e6e8921cc5, type: 3}
+  - {fileID: 1768393813266311650, guid: 438e564287e381a46a29185869d6f407, type: 3}
+  dropRates:
+  - 0.1
+  - 0.2
+  - 0.4
+  - 0.5
   attackInterval: 5
   invulnerable: 0
-  attackTime: 0.85
+  windUpTime: 0.5
+  attackTime: 1.517
   hitTime: 0.35
+  dieSoundTime: 0.15
   dieTime: 0.683
   ranged: 1
   projectile: {fileID: 4882003635698617913, guid: 2c380a7e46b768d478e2145dd8651ad1, type: 3}
@@ -133,7 +137,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

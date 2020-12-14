@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.UI;
 
 
 public class RoomInfo
@@ -15,7 +16,8 @@ public class RoomInfo
 public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
-    string currentWorldName = "Floor";
+    string floorName = "Floor";
+    public int currentFloorNum = 1;
     RoomInfo currentLoadRoomData;
     Room currRoom;
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
@@ -23,10 +25,17 @@ public class RoomController : MonoBehaviour
     bool isLoadingRoom = false;
     bool spawnedBossRoom = false;
     bool updatedRooms = false;
+    public Image blackScreen;
+    public Text loadingText;
+    public GameObject bossUI;
+    public Text bossText;
+    public Slider bossHealth;
+    public bool bossDead = false;
 
     private void Awake()
     {
         instance = this;
+        currentFloorNum = 1;
     }
 
     private void Start()
@@ -71,6 +80,34 @@ public class RoomController : MonoBehaviour
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
     }
 
+    public IEnumerator FadeToBlack(bool ftb)
+    {
+        Color cColor = blackScreen.color;
+        float fadeAmount;
+        if (ftb)
+        {
+            loadingText.enabled = true;
+            while (blackScreen.color.a < 1)
+            {
+                fadeAmount = cColor.a + (2 * Time.deltaTime);
+                cColor = new Color(cColor.r, cColor.g, cColor.b, fadeAmount);
+                blackScreen.color = cColor;
+                yield return null;
+            }
+        }
+        else
+        {
+            while (blackScreen.color.a > 0)
+            {
+                fadeAmount = cColor.a - (2 * Time.deltaTime);
+                cColor = new Color(cColor.r, cColor.g, cColor.b, fadeAmount);
+                blackScreen.color = cColor;
+                yield return null;
+            }
+            loadingText.enabled = false;
+        }
+    }
+
     IEnumerator SpawnBossRoom()
     {
         spawnedBossRoom = true;
@@ -83,6 +120,9 @@ public class RoomController : MonoBehaviour
             var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
             loadedRooms.Remove(roomToRemove);
             LoadRoom("End", tempRoom.X, tempRoom.Y);
+            bossUI.SetActive(false);
+            bossDead = false;
+            StartCoroutine(FadeToBlack(false));
         }
     }
 
@@ -101,7 +141,7 @@ public class RoomController : MonoBehaviour
 
     IEnumerator LoadRoomRoutine(RoomInfo info)
     {
-        string roomName = currentWorldName + info.name;
+        string roomName = floorName + currentFloorNum + info.name;
         AsyncOperation loadRoom = SceneManager.LoadSceneAsync(roomName, LoadSceneMode.Additive);
         yield return null;
         while (!loadRoom.isDone)
@@ -119,12 +159,12 @@ public class RoomController : MonoBehaviour
                 currentLoadRoomData.Y * room.Height, 0);
             room.X = currentLoadRoomData.X;
             room.Y = currentLoadRoomData.Y;
-            room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;       //add to later
+            room.name = floorName + currentFloorNum + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;
             room.transform.parent = transform;
             isLoadingRoom = false;
             if (loadedRooms.Count == 0)
             {
-                CameraController.instance.currRoom = room;      //need later
+                CameraController.instance.currRoom = room;
             }
             loadedRooms.Add(room);
         }
@@ -147,19 +187,37 @@ public class RoomController : MonoBehaviour
 
     public string GetRandomRoomName()
     {
-        string[] possibleRooms = new string[]
+        /*string[] possibleRooms = new string[]
         {
             "Empty",
             "Basic"
         };
-        return possibleRooms[Random.Range(0, possibleRooms.Length)];
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];*/
+        int[] possibleRooms = new int[]     //Number of basic rooms per floor
+        {
+            6,
+            10
+        };
+        if (Random.Range(0, 3) == 0)
+            return "Empty";
+        else
+        {
+            return "Basic " + Random.Range(0, possibleRooms[currentFloorNum - 1]);
+        }
     }
 
     public void OnPlayerEnterRoom(Room room)
     {
-        CameraController.instance.currRoom = room;
-        currRoom = room;
-        UpdateRooms();
+        if (room != currRoom)
+        {
+            CameraController.instance.currRoom = room;
+            currRoom = room;
+            UpdateRooms();
+            if (room.bossRoom && !bossDead)
+                bossUI.SetActive(true);
+            else
+                bossUI.SetActive(false);
+        }
     }
 
     private void UpdateRooms()
@@ -178,5 +236,12 @@ public class RoomController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpdateBossHealth(string name, float current, float max)
+    {
+        bossText.text = name;
+        bossHealth.maxValue = max;
+        bossHealth.value = current;
     }
 }

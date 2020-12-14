@@ -64,10 +64,13 @@
     <Compile Include="Assets\Scripts\BossController.cs" />
     <Compile Include="Assets\Scripts\Dungeon Generation\Door.cs" />
     <Compile Include="Assets\Scripts\LadderController.cs" />
+    <Compile Include="Assets\Scripts\MinotaurController.cs" />
+    <Compile Include="Assets\Scripts\GolemController.cs" />
     <Compile Include="Assets\Scripts\Dungeon Generation\DungeonCrawlerController.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Dungeon Generation\RoomController.cs" />
     <Compile Include="Assets\Scripts\Dungeon Generation\DungeonGenerator.cs" />
+    <Compile Include="Assets\Scripts\GolemBeam.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Dungeon Generation\GridController.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
@@ -75,9 +78,8 @@
     <Compile Include="Assets\Scripts\Dungeon Generation\Wall.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Dungeon Generation\ObjectRoomSpawner.cs" />
-    <Compile Include="Assets\Scripts\MinotaurController.cs" />
-    <Compile Include="Assets\Scripts\GolemController.cs" />
-    <Compile Include="Assets\Scripts\GolemBeam.cs" />
+    <Compile Include="Assets\Scripts\AudioController.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

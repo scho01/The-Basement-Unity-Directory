@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -13,15 +14,18 @@ public class MinotaurController : MonoBehaviour
     public float range = 5;
     public float speed = 2;
     public float health = 30;
+    private float maxHealth;
     public GameObject[] itemPrefab;
+    public float[] dropRates;
     private float lastAttack = 0f;
     public float attackInterval = 3.5f;
     public bool invulnerable = false;
     private bool playerInRange;
-    private readonly float dropChance = 5.0f;
     private int attackNumber = 0;
+    public float[] windUpTime;
     public float[] attackTime;
     public float hitTime;
+    public float dieSoundTime;
     public float dieTime;
     public GameObject projectile;
     public GameObject ladderPrefab;
@@ -31,6 +35,8 @@ public class MinotaurController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        maxHealth = health;
+        RoomController.instance.UpdateBossHealth("Minotaur", health, maxHealth);
     }
 
     void FixedUpdate()
@@ -88,10 +94,9 @@ public class MinotaurController : MonoBehaviour
         anim.SetBool("attack" + attackNumber, true);
         yield return null;
         anim.SetBool("attack" + attackNumber, false);
-        if (attackNumber == 1)
-            yield return new WaitForSeconds(attackTime[0]);
-        else
-            yield return new WaitForSeconds(attackTime[1]);
+        yield return new WaitForSeconds(windUpTime[attackNumber - 1]);
+        AudioController.instance.Play("MAtk" + attackNumber);
+        yield return new WaitForSeconds(attackTime[attackNumber - 1] - windUpTime[attackNumber - 1]);
         currentState = BossState.Follow;
     }
 
@@ -109,6 +114,7 @@ public class MinotaurController : MonoBehaviour
     private IEnumerator Hitstun()
     {
         invulnerable = true;
+        RoomController.instance.UpdateBossHealth("Minotaur", health, maxHealth);
         if (currentState != BossState.Attack)
         {
             currentState = BossState.Hit;
@@ -145,12 +151,24 @@ public class MinotaurController : MonoBehaviour
     {
         invulnerable = true;
         currentState = BossState.Die;
+        RoomController.instance.UpdateBossHealth("Minotaur", 0, maxHealth);
         anim.SetBool("die", true);
         yield return null;
         anim.SetBool("die", false);
-        yield return new WaitForSeconds(dieTime);
-        if (Random.Range(0f, 10f) > dropChance)
-            Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(dieSoundTime);
+        AudioController.instance.Play("MDie");
+        yield return new WaitForSeconds(dieTime - dieSoundTime);
+        RoomController.instance.bossUI.SetActive(false);
+        RoomController.instance.bossDead = true;
+        float drop = Random.Range(0f, 1f);
+        for (int i = 0; i < dropRates.Length; i++)
+        {
+            if (drop < dropRates[i])
+            {
+                Instantiate(itemPrefab[i], (transform.position + transform.position + player.transform.position) / 3, Quaternion.identity);
+                break;
+            }
+        }
         Instantiate(ladderPrefab, transform.parent.position, Quaternion.identity);
         invulnerable = false;
         Destroy(gameObject);

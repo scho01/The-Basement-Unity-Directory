@@ -10,6 +10,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(RoomController.instance.FadeToBlack(true));
         dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonGenerationData);
         SpawnRooms(dungeonRooms);
     }
@@ -19,13 +20,15 @@ public class DungeonGenerator : MonoBehaviour
         if (reset)
         {
             RoomController.instance.LoadRoom("Start", 0, 0);
+            RoomController.instance.currentFloorNum = 1;
             reset = false;
         }
         else
-            RoomController.instance.LoadRoom("Empty", 0, 0);
-        foreach (Vector2Int roomLocation in rooms)
         {
-            RoomController.instance.LoadRoom(RoomController.instance.GetRandomRoomName(), roomLocation.x, roomLocation.y);
+            RoomController.instance.currentFloorNum = 2;
+            RoomController.instance.LoadRoom("Empty", 0, 0);
         }
+        foreach (Vector2Int roomLocation in rooms)
+            RoomController.instance.LoadRoom(RoomController.instance.GetRandomRoomName(), roomLocation.x, roomLocation.y);
     }
 }

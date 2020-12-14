@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private PlayerController pc;
     private Vector3 change;
-    private float cspeed = 4;
+    private float cspeed = 3;
     private bool dash = false;
     private float dashSpeed = 12;
     private float lastDash = -1f;
@@ -25,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
     private float lastAttack = -1f;
     public Text itemText;
     private bool showItemDetails;
+    private bool showStats;
     private bool useItem;
+    private bool quit;
     public PlayerState currentState;
     public int numItems = 0;
     public List<GameObject> items;
@@ -40,11 +42,25 @@ public class PlayerMovement : MonoBehaviour
         pc = GetComponent<PlayerController>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         GetInputs();
+        if (Input.GetKey(KeyCode.Return))
+        {
+            PlayerController.attackDamage = 99;
+            PlayerController.attackSpeed = 0.1f;
+            PlayerController.invulnerable = true;
+            pc.UpdateStatsText();
+        }
+        if (quit)
+            Application.Quit();
+        pc.SetHealth();
         if ((attack != Vector3.zero) && (Time.time > lastAttack + PlayerController.attackSpeed))
             StartCoroutine(Attack());
+        if (showStats)
+            ShowStats(true);
+        else
+            ShowStats(false);
         if (showItemDetails)
             ShowItemDetails(true);
         else
@@ -79,7 +95,9 @@ public class PlayerMovement : MonoBehaviour
         attack = Vector3.Normalize(attack);
         dash = Input.GetKey(KeyCode.LeftShift);
         showItemDetails = Input.GetKey(KeyCode.LeftAlt);
+        showStats = Input.GetKey(KeyCode.Tab);
         useItem = Input.GetKeyDown(KeyCode.F);
+        quit = Input.GetKey(KeyCode.Escape);
     }
 
     void UpdateAnimationAndMove()
@@ -137,7 +155,21 @@ public class PlayerMovement : MonoBehaviour
         }
         return null;
     }
-    
+
+    private void ShowStats(bool press)
+    {
+        if (press)
+        {
+            pc.UpdateStatsText();
+            pc.statsText.enabled = true;
+        }
+        else
+        {
+            pc.statsText.enabled = false;
+        }
+    }
+
+
     private void ShowItemDetails(bool press)
     {
         if (numItems > 0)
@@ -154,9 +186,9 @@ public class PlayerMovement : MonoBehaviour
                 else
                 {
                     itemName = closest.GetComponent<CollectionController>().item.itemName;
-                    itemDescription = closest.GetComponent<CollectionController>().item.itemDescription;
+                    itemDescription = closest.GetComponent<CollectionController>().item.itemDescription + "\n" + closest.GetComponent<CollectionController>().item.itemEffect;
                 }
-                itemText.text = itemName + ": \n" + itemDescription;
+                itemText.text = itemName + "\n" + itemDescription;
             }
             else
             {

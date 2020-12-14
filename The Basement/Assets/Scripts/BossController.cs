@@ -22,6 +22,7 @@ public class BossController : MonoBehaviour
     public float speed = 2;
     public float health = 30;
     public GameObject[] itemPrefab;
+    public float[] dropRates;
     private float lastAttack = 0f;
     public float attackInterval = 3.5f;
     private bool invulnerable = false;

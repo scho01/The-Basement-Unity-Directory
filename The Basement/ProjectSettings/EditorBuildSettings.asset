@@ -9,15 +9,69 @@ EditorBuildSettings:
     path: Assets/Scenes/Rooms/FloorMain.unity
     guid: b003eff864896da4f9878a61039e3e68
   - enabled: 1
-    path: Assets/Scenes/Rooms/FloorStart.unity
+    path: Assets/Scenes/Rooms/Victory.unity
+    guid: 45f07a4bf4d37cc48b98edb68a9360a9
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Start.unity
     guid: e8203160696f7c14aacda92f4eab72d5
   - enabled: 1
-    path: Assets/Scenes/Rooms/FloorBasic.unity
-    guid: 045e35cf21b96dd4fa5295ea6c48e74a
-  - enabled: 1
-    path: Assets/Scenes/Rooms/FloorEmpty.unity
+    path: Assets/Scenes/Rooms/Floor1/Floor1Empty.unity
     guid: 24685cb48c82f2942a48de65055559df
   - enabled: 1
-    path: Assets/Scenes/Rooms/FloorEnd.unity
+    path: Assets/Scenes/Rooms/Floor1/Floor1End.unity
     guid: 18bab7b51d251c046b1f5f7c99bc9209
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Basic 0.unity
+    guid: 045e35cf21b96dd4fa5295ea6c48e74a
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Basic 1.unity
+    guid: 9030e39533f6b684e9aeef745acabb93
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Basic 2.unity
+    guid: d8257d1cbe4a5224aaa51e6daa1ad996
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Basic 3.unity
+    guid: 6db1b9c7e5a052e46b5afead80bfb215
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Basic 4.unity
+    guid: c0ea8948ecb835847bbcaa09092d70b8
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor1/Floor1Basic 5.unity
+    guid: 72914c7565d55f54a9e7a6a1eb891a1b
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Empty.unity
+    guid: da67a5a1f69fd224ca66d05dd648fd11
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2End.unity
+    guid: 965bee6a3c9eec148b0c5aa34128f60a
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 0.unity
+    guid: 7a574e7a36ff8254e83d84a0b0775693
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 1.unity
+    guid: e344aa00a8130c24495ca422c0def543
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 2.unity
+    guid: 33f3bbab5e6e0ca48ac87b4f36a1d28e
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 3.unity
+    guid: 7cf6c2115149af6418a12c5a7a945b97
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 4.unity
+    guid: 75fb368e1e787e74389381608a5ccf9e
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 5.unity
+    guid: 832727a52d6015b42ad6966845e49e7b
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 6.unity
+    guid: 7c00a5caa1c89ae40ad67684a7c0b195
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 7.unity
+    guid: 5ae5855d67f019f41bcea1daea09cd04
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 8.unity
+    guid: 9585a9248059f8f45acdf641a8030454
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Floor2/Floor2Basic 9.unity
+    guid: 22bdf0351acd960428d13ae0e1fd8252
   m_configObjects: {}

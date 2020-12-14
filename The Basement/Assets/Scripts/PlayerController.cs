@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Text statsText;
+    public Text healthText;
     public static float maxHealth = 3;      // Maximum health
     public static float health = 3;         // Current health
     public static float moveSpeed = 3;      // Walking speed
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public static float attackSpeed = 1;    // Cooldown between attacks, modified by multiplying with fraction
     public static float attackDamage = 1;   // Damage dealt per hit
     public static bool invulnerable = false;
+    public Slider healthSlider;
+//    public AudioController ac;
 
     void Start()
     {
@@ -64,12 +67,19 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateStatsText()
     {
-        statsText.text = "Health = " + health + "/" + maxHealth + "\n"
-            + "Spd = " + moveSpeed + "\n"
+        statsText.text =
+            "Spd = " + moveSpeed + "\n"
             + "Atk = " + attackDamage + "\n"
-            + "AtkSpd = " + attackSpeed + "\n"
+            + "AtkCD = " + attackSpeed + "\n"
             + "DashTime = " + dashLength + "\n"
             + "DashCD = " + dashCoolDown + "\n";
+    }
+
+    public void SetHealth()
+    {
+        healthText.text = health + "/" + maxHealth;
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = health;
     }
 
     private IEnumerator Hitstun(bool boss)
@@ -96,6 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!invulnerable)
         {
+            AudioController.instance.Play("PDmg");
             StartCoroutine(Hitstun(boss));
         }
     }
@@ -114,6 +125,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        AudioController.instance.Play("PDie");
         ResetStats();
         DungeonGenerator.reset = true;
         SceneManager.LoadScene(0);

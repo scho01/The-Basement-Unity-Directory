@@ -44,6 +44,10 @@ public class LadderController : MonoBehaviour
 
     public void Use()
     {
-        SceneManager.LoadScene(0);
+        RoomController.instance.currentFloorNum++;
+        if (RoomController.instance.currentFloorNum < 3)
+            SceneManager.LoadScene(0);
+        else
+            SceneManager.LoadScene(1);
     }
 }

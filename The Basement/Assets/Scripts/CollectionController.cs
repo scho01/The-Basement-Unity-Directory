@@ -7,6 +7,7 @@ public class Item
 {
     public string itemName;
     public string itemDescription;
+    public string itemEffect;
     public Sprite itemImage;
 }
 
@@ -35,7 +36,7 @@ public class CollectionController : MonoBehaviour
     {
         if (!hover)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.CompareTag("Player") || collision.CompareTag("PlayerHitBox"))
             {
                 player.numItems++;
                 player.items.Add(gameObject);
@@ -48,7 +49,7 @@ public class CollectionController : MonoBehaviour
     {
         if (hover)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.CompareTag("Player") || collision.CompareTag("PlayerHitBox"))
             {
                 player.numItems--;
                 player.items.Remove(gameObject);
@@ -60,9 +61,12 @@ public class CollectionController : MonoBehaviour
     public void Use()
     {
         PlayerController.maxHealth += maxHealthMod;
-        if (PlayerController.health + healthMod < PlayerController.maxHealth)
-            PlayerController.health += healthMod;
-        else
+        if (PlayerController.maxHealth <= 0)
+            PlayerController.maxHealth = 0.1f;
+        PlayerController.health += healthMod;
+        if (PlayerController.health <= 0)
+            PlayerController.health = 0.1f;
+        if (PlayerController.health > PlayerController.maxHealth)
             PlayerController.health = PlayerController.maxHealth;
         PlayerController.moveSpeed += moveSpeedMod;
         PlayerController.dashCoolDown *= dashCoolDownMod;

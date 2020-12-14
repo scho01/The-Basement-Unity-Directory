@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6887d18de4b6c46bb40fefdf19af4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyInitial: MG
   anim: {fileID: 5565044602207267234}
   currentState: 0
   range: 5
@@ -107,18 +108,21 @@ MonoBehaviour:
   nextPos: {x: 0, y: 0, z: 0}
   health: 15
   itemPrefab:
-  - {fileID: 1768393813266311650, guid: 7c6c47939ffd4d542945c5aafc8a1fa2, type: 3}
-  - {fileID: 1768393813266311650, guid: 3f528f6a4e264ea4091544bbf7e12e26, type: 3}
-  - {fileID: 1768393813266311650, guid: a50121e2ed47b594db5c7ff574d08168, type: 3}
-  - {fileID: 1768393813266311650, guid: 908aacfd2d68c0849b399e2bc206a69d, type: 3}
-  - {fileID: 1768393813266311650, guid: c02766978af5f224c9227c967292083a, type: 3}
   - {fileID: 1768393813266311650, guid: 6c38275ffabe02548abbb00c00319129, type: 3}
-  - {fileID: 1768393813266311650, guid: 6486a5ac8aaf5cc409c3d2faad69ebed, type: 3}
   - {fileID: 1768393813266311650, guid: 4d9f81e96665a3d49acc65f2c5573a5b, type: 3}
+  - {fileID: 1768393813266311650, guid: e3a47874567b8604dacadd14c06dc6a2, type: 3}
+  - {fileID: 1768393813266311650, guid: 3ad0eb1f9f30f6645906862040704ee3, type: 3}
+  dropRates:
+  - 0.01
+  - 0.1
+  - 0.2
+  - 0.5
   attackInterval: 5
   invulnerable: 0
+  windUpTime: 0.833
   attackTime: 1.267
   hitTime: 0.433
+  dieSoundTime: 0
   dieTime: 0.6
   ranged: 0
   projectile: {fileID: 0}

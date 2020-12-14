@@ -12,15 +12,18 @@ public class GolemController : MonoBehaviour
     public float range = 5;
     public float speed = 1;
     public float health = 50;
+    private float maxHealth;
     public GameObject[] itemPrefab;
+    public float[] dropRates;
     private float lastAttack = 0f;
     public float attackInterval = 4f;
     private bool invulnerable = false;
     private bool playerInRange = false;
-    private readonly float dropChance = 5.0f;
     private int attackNumber = 0;
+    public float[] windUpTime;
     public float[] attackTime;
     public float hitTime;
+    public float dieSoundTime;
     public float dieTime;
     public GameObject projectile;
     public GameObject ladderPrefab;
@@ -30,6 +33,8 @@ public class GolemController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        maxHealth = health;
+        RoomController.instance.UpdateBossHealth("Golem", health, maxHealth);
     }
 
     void FixedUpdate()
@@ -87,23 +92,24 @@ public class GolemController : MonoBehaviour
         anim.SetBool("attack" + attackNumber, true);
         yield return null;
         anim.SetBool("attack" + attackNumber, false);
-        if (attackNumber == 1)
-            yield return new WaitForSeconds(attackTime[0]);
-        else if (attackNumber == 2)
-            yield return new WaitForSeconds(attackTime[1]);
-        else if (attackNumber == 3)
-        {
-            GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
-            proj.transform.parent = gameObject.transform;
-            yield return new WaitForSeconds(attackTime[2]);
-        }
-        else
+        if (attackNumber == 4)
         {
             yield return new WaitForSeconds(0.5f);
             invulnerable = true;
             yield return new WaitForSeconds(1.5f);
             invulnerable = false;
             yield return new WaitForSeconds(attackTime[3] - 2f);
+        }
+        else
+        {
+            if (attackNumber == 3)
+            {
+                GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
+                proj.transform.parent = gameObject.transform;
+            }
+            yield return new WaitForSeconds(windUpTime[attackNumber - 1]);
+            AudioController.instance.Play("GAtk" + attackNumber);
+            yield return new WaitForSeconds(attackTime[attackNumber - 1] - windUpTime[attackNumber - 1]);
         }
         currentState = BossState.Follow;
     }
@@ -122,6 +128,7 @@ public class GolemController : MonoBehaviour
     private IEnumerator Hitstun()
     {
         invulnerable = true;
+        RoomController.instance.UpdateBossHealth("Golem", health, maxHealth);
         if (currentState != BossState.Attack)
         {
             currentState = BossState.Hit;
@@ -158,12 +165,22 @@ public class GolemController : MonoBehaviour
     {
         invulnerable = true;
         currentState = BossState.Die;
+        RoomController.instance.UpdateBossHealth("Golem", 0, maxHealth);
         anim.SetBool("die", true);
         yield return null;
         anim.SetBool("die", false);
         yield return new WaitForSeconds(dieTime);
-        if (Random.Range(0f, 10f) > dropChance)
-            Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
+        RoomController.instance.bossUI.SetActive(false);
+        RoomController.instance.bossDead = true;
+        float drop = Random.Range(0f, 1f);
+        for (int i = 0; i < dropRates.Length; i++)
+        {
+            if (drop <= dropRates[i])
+            {
+                Instantiate(itemPrefab[i], (transform.position + transform.position + player.transform.position) / 3, Quaternion.identity);
+                break;
+            }
+        }
         Instantiate(ladderPrefab, transform.parent.position, Quaternion.identity);
         invulnerable = false;
         Destroy(gameObject);

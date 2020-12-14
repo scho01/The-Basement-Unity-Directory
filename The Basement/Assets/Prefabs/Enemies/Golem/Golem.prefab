@@ -106,14 +106,27 @@ MonoBehaviour:
   speed: 1
   health: 50
   itemPrefab:
-  - {fileID: 1768393813266311650, guid: 8f8f6ef2f81a2564db90e8a4e4a9fb9b, type: 3}
+  - {fileID: 1768393813266311650, guid: 6c38275ffabe02548abbb00c00319129, type: 3}
+  - {fileID: 1768393813266311650, guid: 4d9f81e96665a3d49acc65f2c5573a5b, type: 3}
+  - {fileID: 1768393813266311650, guid: 99471e95d68cb164794816a7bc5a4ea5, type: 3}
+  - {fileID: 1768393813266311650, guid: 3ad0eb1f9f30f6645906862040704ee3, type: 3}
+  dropRates:
+  - 0.3
+  - 0.6
+  - 0.7
+  - 1
   attackInterval: 4
+  windUpTime:
+  - 0.666
+  - 0.25
+  - 0.2
   attackTime:
   - 1.267
   - 1.1
   - 5.433
   - 2.517
   hitTime: 0.367
+  dieSoundTime: 1.08
   dieTime: 1.767
   projectile: {fileID: 4882003635698617913, guid: 5eaec64d8b0e599429ac20d2a2a2fe66, type: 3}
   ladderPrefab: {fileID: 5906675864596518308, guid: 5632df91df3502c47885018b2f576397, type: 3}
@@ -129,7 +142,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 500
+  m_Mass: 250
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
