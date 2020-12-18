@@ -159,7 +159,7 @@ public class BossController : MonoBehaviour
     {
         if (!invulnerable)
         {
-            health -= PlayerController.attackDamage;
+            health -= PlayerController.playerStats[2];
             if (health <= 0)
                 StartCoroutine(Die());
             else

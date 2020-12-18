@@ -7,6 +7,7 @@ public class LadderController : MonoBehaviour
 {
     public string ladderName = "Ladder";
     public string ladderDescription = "Move on to the next floor.";
+    public string reverseDescription = "Restart the game from the first floor (Your current stats will be retained)";
     public bool hover;
     private PlayerMovement player;
     // Start is called before the first frame update
@@ -44,10 +45,30 @@ public class LadderController : MonoBehaviour
 
     public void Use()
     {
-        RoomController.instance.currentFloorNum++;
-        if (RoomController.instance.currentFloorNum < 3)
-            SceneManager.LoadScene(0);
+        if (RoomController.instance.currentFloorNum > 2)
+        {
+            ConfirmationDialog.Show($"Are you sure you want to return to the first floor?\nYour current stats will be retained.\n\n<size=80>Y / N</size>", () =>
+            {
+                RoomController.instance.currentFloorNum++;
+                DungeonGenerator.reset = true;
+                PlayerMovement.vScreen = false;
+                PlayerController.invulnerable = false;
+                SceneManager.LoadScene(1);
+            });
+        }
         else
-            SceneManager.LoadScene(1);
+        {
+            ConfirmationDialog.Show($"Proceed to the next floor?\n\n<size=80>Y / N</size>", () =>
+            {
+                RoomController.instance.currentFloorNum++;
+                if (RoomController.instance.currentFloorNum < 3)
+                    SceneManager.LoadScene(1);
+                else
+                {
+                    SceneManager.LoadScene(2);
+                    PlayerMovement.vScreen = true;
+                }
+            });
+        }
     }
 }

@@ -96,20 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: A Rock
-    itemDescription: 'Description: A moderately sized rock you found from the golem''s
-      remains. It''s just a normal rock.'
-    itemEffect: 'Effect: Increase attack damage by 0.3, but increase attack cool
-      down by 3%.'
-    itemImage: {fileID: 21300000, guid: 9d35711e1bc8e704b8808b409fae90d3, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1.05
-  attackDamageMod: 0.5
+  itemName: A Rock.
+  positiveEffects:
+  - Atk +0.5
+  negativeEffects:
+  - Atk CD +5%
+  itemDescription: It's just a normal rock. Decently heavy, so it might hurt if you
+    are hit with it.
+  stats:
+  - 0
+  - 0
+  - 0.5
+  - 0
+  - 0
+  - 1.05
+  - 1
   hover: 0
 --- !u!61 &8305287109739906144
 BoxCollider2D:
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0.0130521655}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,5 +136,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65829027, y: 0.60235226}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768393813266311646}
   - component: {fileID: 1768393813266311645}
   - component: {fileID: 1768393813266311651}
-  - component: {fileID: 8339181234730101400}
+  - component: {fileID: 3397934926784603562}
   m_Layer: 0
   m_Name: GolemCore
   m_TagString: Untagged
@@ -96,22 +96,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Solid Golem Core
-    itemDescription: 'Description: The core of a golem that you somehow extracted
-      in one piece. Radiates raw power.'
-    itemEffect: 'Effect: Boosts all stats significantly.'
-    itemImage: {fileID: 21300000, guid: 1d0a2f6cbfe830d4d91e5c3e6c439090, type: 3}
-  maxHealthMod: 2
-  healthMod: 2
-  moveSpeedMod: 0.2
-  dashCoolDownMod: 0.9
-  dashLengthMod: 0.05
-  attackSpeedMod: 0.9
-  attackDamageMod: 1
+  itemName: Golem Core
+  positiveEffects:
+  - Max HP +2
+  - HP +2
+  - Atk +1
+  - Atk CD -10%
+  - Spd +0.2
+  - Dash Duration +0.05 s
+  - Dash CD -10%
+  negativeEffects: []
+  itemDescription: The core of a golem that you somehow managed to extracted in one
+    piece. Radiates raw power.
+  stats:
+  - 2
+  - 2
+  - 1
+  - 0.2
+  - 0.05
+  - 0.9
+  - 0.9
   hover: 0
---- !u!58 &8339181234730101400
-CircleCollider2D:
+--- !u!61 &3397934926784603562
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,6 +130,16 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02610457, y: 0.014916778}
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.38881242
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0

@@ -19,7 +19,7 @@ public class RoomController : MonoBehaviour
     string floorName = "Floor";
     public int currentFloorNum = 1;
     RoomInfo currentLoadRoomData;
-    Room currRoom;
+    public Room currRoom;
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
     public List<Room> loadedRooms = new List<Room>();
     bool isLoadingRoom = false;
@@ -45,6 +45,8 @@ public class RoomController : MonoBehaviour
         //LoadRoom("Empty", 1, 0);
         //LoadRoom("Empty", 0, -1);
         //LoadRoom("Empty", 0, 1);
+        if (currentFloorNum == 3)
+            isLoadingRoom = true;
     }
 
     private void Update()
@@ -122,6 +124,8 @@ public class RoomController : MonoBehaviour
             LoadRoom("End", tempRoom.X, tempRoom.Y);
             bossUI.SetActive(false);
             bossDead = false;
+            PlayerMovement.vScreen = false;
+            PlayerController.invulnerable = false;
             StartCoroutine(FadeToBlack(false));
         }
     }
@@ -198,7 +202,7 @@ public class RoomController : MonoBehaviour
             6,
             10
         };
-        if (Random.Range(0, 3) == 0)
+        if (Random.Range(0, 5) == 0)
             return "Empty";
         else
         {

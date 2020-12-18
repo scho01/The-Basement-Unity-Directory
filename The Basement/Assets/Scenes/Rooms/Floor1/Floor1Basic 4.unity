@@ -123,6 +123,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1156271337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4516536214235542657}
+    m_Modifications:
+    - target: {fileID: 9221492876928438, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_Name
+      value: RoomBorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+--- !u!4 &1156271338 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 839839999154079214, guid: 28a68b51d30e0fe4f85bec3cf172489e, type: 3}
+  m_PrefabInstance: {fileID: 1156271337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &911704830019022448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5537,6 +5599,7 @@ MonoBehaviour:
   rWall: {fileID: 0}
   uWall: {fileID: 0}
   enemiesObject: {fileID: 0}
+  bossRoom: 0
 --- !u!4 &4516536214235542657
 Transform:
   m_ObjectHideFlags: 0
@@ -5560,6 +5623,7 @@ Transform:
   - {fileID: 4516536212812658605}
   - {fileID: 4516536213841356624}
   - {fileID: 4516536212808059616}
+  - {fileID: 1156271338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768393813266311646}
   - component: {fileID: 1768393813266311645}
   - component: {fileID: 1768393813266311651}
-  - component: {fileID: 1063197029723587226}
+  - component: {fileID: 957298295184541369}
   m_Layer: 0
   m_Name: PotionL
   m_TagString: Untagged
@@ -96,22 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Health Potion (L)
-    itemDescription: 'Description: A mysterious red liquid that makes you feel healthier
-      when you drink it.'
-    itemEffect: 'Effect: Fully restores your health.'
-    itemImage: {fileID: 21300000, guid: 3e9d148bfb688b5499498015b5b27525, type: 3}
-  maxHealthMod: 0
-  healthMod: 999
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 0
+  itemName: Health Potion (L)
+  positiveEffects:
+  - HP = Max
+  negativeEffects: []
+  itemDescription: A gallon sized bottle full of a mysterious red liquid that makes
+    you feel healthier when you drink it.
+  stats:
+  - 0
+  - 999
+  - 0
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
---- !u!70 &1063197029723587226
-CapsuleCollider2D:
+--- !u!61 &957298295184541369
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,6 +124,16 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0018646717, y: -0.011187613}
-  m_Size: {x: 0.60235214, y: 0.8596674}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0

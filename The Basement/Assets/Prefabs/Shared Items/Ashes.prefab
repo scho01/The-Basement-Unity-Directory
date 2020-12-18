@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768393813266311646}
   - component: {fileID: 1768393813266311645}
   - component: {fileID: 1768393813266311651}
-  - component: {fileID: -5671238503686533322}
+  - component: {fileID: 6995636686601056370}
   m_Layer: 0
   m_Name: Ashes
   m_TagString: Untagged
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: -135785283
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ca09685e17f5dd644b965911e8af96fa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 04aaa5a4282640742a2b611b73ec8c9f, type: 3}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,22 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Ashes
-    itemDescription: 'Description: The ashes left behind by a fire elemental. Good
-      at making things gray, I guess.'
-    itemEffect: 'Effect: Increase attack damage by 0.1'
-    itemImage: {fileID: 21300000, guid: ca09685e17f5dd644b965911e8af96fa, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 0.1
+  itemName: A Small Pile of Ashes
+  positiveEffects:
+  - Atk +0.1
+  negativeEffects: []
+  itemDescription: The ashes left behind by a fire elemental. Might make enemies
+    cough a little?
+  stats:
+  - 0
+  - 0
+  - 0.1
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
---- !u!58 &-5671238503686533322
-CircleCollider2D:
+--- !u!61 &6995636686601056370
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,6 +124,16 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.065261245}
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.3645724
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0

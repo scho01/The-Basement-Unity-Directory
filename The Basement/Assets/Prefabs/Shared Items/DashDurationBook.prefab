@@ -96,20 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Stamina Maximization For Dummies
-    itemDescription: 'Description: A guide full of techniques to maximize your stamina.
-      If only you could understand the language...'
-    itemEffect: 'Effect: Increase dash duration by 0.05 seconds and movement speed
-      by 0.5.'
-    itemImage: {fileID: 21300000, guid: 397b5291121745046abdcc286a373473, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0.5
-  dashCoolDownMod: 1
-  dashLengthMod: 0.05
-  attackSpeedMod: 1
-  attackDamageMod: 0
+  itemName: Boost Your Stamina With These Simple Tricks!
+  positiveEffects:
+  - Spd +0.5
+  - Dash Duration +0.05 s
+  negativeEffects: []
+  itemDescription: A book full of useful exercises to help boost your stamina. Whether
+    you'll actually end up doing them is another matter...
+  stats:
+  - 0
+  - 0
+  - 0
+  - 0.5
+  - 0.05
+  - 1
+  - 1
   hover: 0
 --- !u!61 &4534897412176404588
 BoxCollider2D:
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,5 +136,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62099826, y: 0.8}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

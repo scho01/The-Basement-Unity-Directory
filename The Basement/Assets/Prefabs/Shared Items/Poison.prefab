@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768393813266311646}
   - component: {fileID: 1768393813266311645}
   - component: {fileID: 1768393813266311651}
-  - component: {fileID: 9173745056731730840}
+  - component: {fileID: -3573251924125023883}
   m_Layer: 0
   m_Name: Poison
   m_TagString: Untagged
@@ -96,24 +96,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Poisonous Glob
-    itemDescription: 'Description: The remains of the cobra''s poison gland after
-      its beatdown. Maybe it''ll work against them too? Just be careful not to get
-      it on yourself.'
-    itemEffect: 'Effect: Increase attack damage by 0.5, but reduce movement speed
-      by 0.5.'
-    itemImage: {fileID: 21300000, guid: c322030daa9bebe44994f7e62077fe2f, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: -0.2
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 0.5
+  itemName: Poisonous Glob
+  positiveEffects:
+  - Atk +0.5
+  negativeEffects:
+  - Spd -0.2
+  itemDescription: The remains of the cobra's poison gland after you so rudely beat
+    it up. Maybe the poison will work against other things too? Just be careful not
+    to get it on yourself.
+  stats:
+  - 0
+  - 0
+  - 0.5
+  - -0.2
+  - 0
+  - 1
+  - 1
   hover: 0
---- !u!58 &9173745056731730840
-CircleCollider2D:
+--- !u!61 &-3573251924125023883
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,5 +127,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0

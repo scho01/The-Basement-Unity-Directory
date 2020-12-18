@@ -37,6 +37,10 @@ public class AudioController : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
             return;
+        if (PauseMenu.gamePaused)
+        {
+            s.source.pitch *= 0.5f;
+        }
         s.source.Play();
     }
 }

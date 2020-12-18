@@ -96,20 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Boot
-    itemDescription: 'Description: A partially digested, single, right leather boot
-      found inside a cobra. The left one appears to be fully digested...'
-    itemEffect: 'Effect: Increase movement speed by 0.2 and dash duration by 0.02
-      seconds.'
-    itemImage: {fileID: 21300000, guid: dd2160027a5d00249b9d94786be4331a, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0.2
-  dashCoolDownMod: 1
-  dashLengthMod: 0.02
-  attackSpeedMod: 1
-  attackDamageMod: 0
+  itemName: Partially Digested Boot
+  positiveEffects:
+  - Spd +0.2
+  - Dash Duration +0.02 s
+  negativeEffects: []
+  itemDescription: A single right leather boot found decomposing inside a cobra.
+    Unfortunately, the left one is missing...
+  stats:
+  - 0
+  - 0
+  - 0
+  - 0.2
+  - 0.02
+  - 1
+  - 1
   hover: 0
 --- !u!61 &8265207088845566833
 BoxCollider2D:
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022375226, y: -0.020510674}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,5 +136,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7552495, y: 0.55014324}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

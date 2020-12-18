@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768393813266311646}
   - component: {fileID: 1768393813266311645}
   - component: {fileID: 1768393813266311651}
-  - component: {fileID: 5818100131986908429}
+  - component: {fileID: 5369184959051205073}
   m_Layer: 0
   m_Name: Snowflake
   m_TagString: Untagged
@@ -96,24 +96,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Unmelting Snowflake
-    itemDescription: 'Description: A snowflake left behind by the ice elemental that
-      doesn''t seem to melt even when thrown at the fire elemental. Not particularly
-      useful, but looks very pretty. Try putting it on your shoes?'
-    itemEffect: 'Effect: Increase movement speed by 0.5 and dash duration by 0.05,
-      but increase dash cool down by 5%.'
-    itemImage: {fileID: 21300000, guid: e1c10ef9319562a4abaf6754cf984871, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0.5
-  dashCoolDownMod: 1.05
-  dashLengthMod: 0.05
-  attackSpeedMod: 1
-  attackDamageMod: 0
+  itemName: Everlasting Snowflake
+  positiveEffects:
+  - Spd +0.5
+  - Dash Duration +0.05 s
+  negativeEffects:
+  - Dash CD +5%
+  itemDescription: A snowflake left behind by the ice elemental that doesn't seem
+    to melt. Not particularly useful, but looks very pretty. Try putting it on your
+    shoes? Maybe you'll be able to skate around.
+  stats:
+  - 0
+  - 0
+  - 0
+  - 0.5
+  - 0.05
+  - 1
+  - 1.05
   hover: 0
---- !u!58 &5818100131986908429
-CircleCollider2D:
+--- !u!61 &5369184959051205073
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,5 +128,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.318
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0

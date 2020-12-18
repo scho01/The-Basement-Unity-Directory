@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3456373948732599458}
   - component: {fileID: 5565044602207267234}
   - component: {fileID: 3234221477712097866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Golem
   m_TagString: Golem
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3337077794884950518}
   - component: {fileID: 7748093273150565133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 8627752653457073740}
   - component: {fileID: 1289740503999555117}
   - component: {fileID: 1817772149127008014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attack2
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 3231790117576702525}
   - component: {fileID: 6365559535963928683}
   - component: {fileID: 4573081355586831791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attack1
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}

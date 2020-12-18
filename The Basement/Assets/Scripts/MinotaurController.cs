@@ -29,27 +29,48 @@ public class MinotaurController : MonoBehaviour
     public float dieTime;
     public GameObject projectile;
     public GameObject ladderPrefab;
+    private Vector3 startPosition;
+    private SpriteRenderer sr;
+    public bool vScreen = false;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         maxHealth = health;
-        RoomController.instance.UpdateBossHealth("Minotaur", health, maxHealth);
+        if (!vScreen)
+            RoomController.instance.UpdateBossHealth("Minotaur", health, maxHealth);
+        StartCoroutine(SetStartingPosition());
+    }
+
+    private IEnumerator SetStartingPosition()
+    {
+        yield return new WaitForSeconds(1f);
+        startPosition = transform.position;
     }
 
     void FixedUpdate()
     {
-        playerInRange = IsPlayerInRange(range);
         switch (currentState)
         {
             case (BossState.Idle):
+                playerInRange = IsPlayerInRange(5);
                 rb.velocity = Vector3.zero;
                 Idle();
                 break;
             case (BossState.Follow):
-                Attack();
+                if (!vScreen)
+                {
+                    if (!RoomController.instance.currRoom.bossRoom)
+                        ResetPosition();
+                    else
+                        Attack();
+                    break;
+                }
+                else
+                    Attack();
                 break;
             case (BossState.Attack):
                 break;
@@ -114,6 +135,7 @@ public class MinotaurController : MonoBehaviour
     private IEnumerator Hitstun()
     {
         invulnerable = true;
+        sr.color = new Color(0.7f, 0.7f, 0.7f);
         RoomController.instance.UpdateBossHealth("Minotaur", health, maxHealth);
         if (currentState != BossState.Attack)
         {
@@ -125,26 +147,45 @@ public class MinotaurController : MonoBehaviour
             anim.SetBool("damage", false);
             yield return new WaitForSeconds(hitTime);
             speed = pspeed;
-            invulnerable = false;
             currentState = BossState.Follow;
         }
         else
-        {
             yield return new WaitForSeconds(hitTime);
+        sr.color = new Color(1f, 1f, 1f);
+        if (!vScreen)
             invulnerable = false;
-        }
     }
 
     public void Hit()
     {
         if (!invulnerable)
         {
-            health -= PlayerController.attackDamage;
+            health -= PlayerController.playerStats[2];
             if (health <= 0)
                 StartCoroutine(Die());
             else
                 StartCoroutine(Hitstun());
         }
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = startPosition;
+        if (health > 0)
+        {
+            anim.SetBool("attack1", false);
+            anim.SetBool("attack2", false);
+            anim.SetBool("damage", false);
+            anim.SetBool("walk", false);
+            if (transform.childCount > 1)
+                transform.GetChild(0).gameObject.SetActive(false);
+            if (!vScreen)
+                invulnerable = false;
+            currentState = BossState.Idle;
+            lastAttack = Time.time;
+        }
+        else
+            StartCoroutine(Die());
     }
 
     private IEnumerator Die()

@@ -96,19 +96,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Torch
-    itemDescription: 'Description: A torch(?). Don''t ask.'
-    itemEffect: 'Effect: Increase attack damage by 1, but decrease maximum health
-      by 1. If maximum health reaches 0 or lower, maximum health becomes 0.1.'
-    itemImage: {fileID: 21300000, guid: 44e6fda8e6a113e4cb6a915663f85acc, type: 3}
-  maxHealthMod: -1
-  healthMod: 0
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 1
+  itemName: Torch(?)
+  positiveEffects:
+  - Atk +1
+  negativeEffects:
+  - Max HP -1
+  itemDescription: A totally normal, definitely not suspicious torch. I mean, any
+    stick-like object with fire on one end is a torch right? What do you mean, imps
+    don't need torches? They use them to make their fireballs, obviously.
+  stats:
+  - -1
+  - 0
+  - 1
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
 --- !u!61 &-2166667411325316985
 BoxCollider2D:
@@ -123,7 +126,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0.0055938363}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,5 +137,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65829027, y: 0.6545609}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

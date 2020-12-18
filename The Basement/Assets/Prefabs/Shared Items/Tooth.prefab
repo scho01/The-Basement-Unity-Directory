@@ -96,19 +96,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Tooth
-    itemDescription: 'Description: A tooth that fell out of the imp''s mouth. Surprisingly
-      sturdy and sharp.'
-    itemEffect: 'Effect: Increase attack damage by 0.5.'
-    itemImage: {fileID: 21300000, guid: b5abcd21c97d74f458310bb08b4292f8, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 0.5
+  itemName: Imp's Fang
+  positiveEffects:
+  - Atk +0.3
+  negativeEffects: []
+  itemDescription: A tooth that fell out of the imp's mouth. Sturdy and sharp.
+  stats:
+  - 0
+  - 0
+  - 0.3
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
 --- !u!61 &7565381416036580678
 BoxCollider2D:
@@ -123,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,5 +134,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.60608137, y: 0.5613308}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

@@ -8,21 +8,29 @@ public class PlayerController : MonoBehaviour
 {
     public Text statsText;
     public Text healthText;
-    public static float maxHealth = 3;      // Maximum health
-    public static float health = 3;         // Current health
-    public static float moveSpeed = 3;      // Walking speed
-    public static float dashCoolDown = 1f;  // Cooldown between dashes, modified by multiplying with fraction
-    public static float dashLength = 0.2f;  // Dash duration (affects both dash distance and invuln duration)
-    public static float attackSpeed = 1;    // Cooldown between attacks, modified by multiplying with fraction
-    public static float attackDamage = 1;   // Damage dealt per hit
+    public Text popUpText;
+    public static float[] playerStats = new float[] {
+    3,      //Max HP
+    3,      //HP
+    1,      //Atk
+    3.5f,   //Spd
+    0.2f,   //DD
+    1,      //AtkCD
+    1       //DCD
+    };
+//    public static int[] numItemsCollected = new int[19](0);
     public static bool invulnerable = false;
     public Slider healthSlider;
-//    public AudioController ac;
+    private SpriteRenderer sr;
+    private string itemEffect = "";
+    private bool displayText;
+    private float itemEffectTimer;
 
     void Start()
     {
         invulnerable = false;
-        UpdateStatsText();
+        SetHealth();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     /*    void Attack(float x, float y)
@@ -65,39 +73,107 @@ public class PlayerController : MonoBehaviour
         }
     */
 
+    private IEnumerator DisplayItemEffects(string effectDisplayText)
+    {
+        popUpText.text = effectDisplayText;
+        popUpText.enabled = true;
+        displayText = true;
+        itemEffectTimer = 2 + Time.time;
+        while (itemEffectTimer > Time.time)
+        {
+            yield return null;
+        }
+        popUpText.enabled = false;
+        popUpText.text = "";
+        displayText = false;
+    }
+
+    public void UseItem(float[] stats, string[] pEffect, string[] nEffect)
+    {
+        if (displayText)
+            StopCoroutine(DisplayItemEffects(itemEffect));
+        itemEffect = "";
+        for (int i = 0; i < 5; i++)
+        {
+            playerStats[i] += stats[i];
+        }
+        for (int i = 5; i < 7; i++)
+        {
+            playerStats[i] *= stats[i];
+        }
+        if (playerStats[0] <= 0)
+            playerStats[0] = 0.1f;
+        if (playerStats[1] <= 0)
+            playerStats[1] = 0.1f;
+        if (playerStats[0] < playerStats[1])
+            playerStats[1] = playerStats[0];
+        SetHealth();
+        for (int i = 0; i < pEffect.Length; i++)
+            itemEffect += $"<color=lime>{pEffect[i]}</color>\n";
+        for (int i = 0; i < nEffect.Length; i++)
+            itemEffect += $"<color=red>{nEffect[i]}</color>\n";
+        StartCoroutine(DisplayItemEffects(itemEffect));
+    }
+
     public void UpdateStatsText()
     {
         statsText.text =
-            "Spd = " + moveSpeed + "\n"
-            + "Atk = " + attackDamage + "\n"
-            + "AtkCD = " + attackSpeed + "\n"
-            + "DashTime = " + dashLength + "\n"
-            + "DashCD = " + dashCoolDown + "\n";
+            "Atk = " + Mathf.Round(playerStats[2] * 10) / 10 + "\n"
+            + "Atk CD = " + Mathf.Round(playerStats[5] * 1000) / 1000 + "\n"
+            + "Spd = " + Mathf.Round(playerStats[3] * 10) / 10 + "\n"
+            + "Dash Time = " + Mathf.Round(playerStats[4] * 100) / 100 + "\n"
+            + "Dash CD = " + Mathf.Round(playerStats[6] * 1000) / 1000;
     }
 
     public void SetHealth()
     {
-        healthText.text = health + "/" + maxHealth;
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = health;
+        healthText.text = Mathf.Round(playerStats[1] * 10) / 10 + "/" + Mathf.Round(playerStats[0] * 10) / 10;
+        healthSlider.maxValue = playerStats[0];
+        healthSlider.value = playerStats[1];
     }
 
     private IEnumerator Hitstun(bool boss)
     {
         invulnerable = true;
         if (!boss)
-            health -= 0.5f;
+            playerStats[1] -= 0.5f;
         else
-            health -= 1f;
+            playerStats[1] -= 1f;
         UpdateStatsText();
-        if (health <= 0)
+        if (playerStats[1] <= 0)
         {
             Die();
             yield break;
         }
         else
         {
-            yield return new WaitForSeconds(1f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(1f, 1f, 1f);
             invulnerable = false;
         }
     }
@@ -111,16 +187,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ResetStats()
+    public static void ResetStats()
     {
-        maxHealth = 3;
-        health = 3;
-        moveSpeed = 3;
-        dashCoolDown = 1f;
-        dashLength = 0.2f;
-        attackSpeed = 1;
-        attackDamage = 1;
-        UpdateStatsText();
+        playerStats[0] = 3;      //Max HP
+        playerStats[1] = 3;      //HP
+        playerStats[2] = 1;      //Atk
+        playerStats[3] = 3.5f;   //Spd
+        playerStats[4] = 0.2f;   //DD
+        playerStats[5] = 1;      //AtkCD
+        playerStats[6] = 1;      //DCD
     }
 
     private void Die()
@@ -128,6 +203,6 @@ public class PlayerController : MonoBehaviour
         AudioController.instance.Play("PDie");
         ResetStats();
         DungeonGenerator.reset = true;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

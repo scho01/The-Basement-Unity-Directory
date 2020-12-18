@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2090806664960722982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090806664960722987}
+  - component: {fileID: 2090806664960722981}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090806664960722987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090806664960722982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090806664960722981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090806664960722982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5961cd5618af148a854fa1a2d392ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PMiss
+    clip: {fileID: 8300000, guid: 40122d9ae62aca2409260452b3c07a8d, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PHit
+    clip: {fileID: 8300000, guid: 96a69629f2e3c4d42892d74060d5c77a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PDmg
+    clip: {fileID: 8300000, guid: fd2541e27c2b00a4087b13cdb252f8be, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PDie
+    clip: {fileID: 8300000, guid: acf9710c5c0eb4248be8cddf59127ba9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FEAtk
+    clip: {fileID: 8300000, guid: f3a58e6b4724bbf47b1a731815fc7c6b, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FEDie
+    clip: {fileID: 8300000, guid: 96b401e8a7d60d24e843a989cff510c6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: IEAtk
+    clip: {fileID: 8300000, guid: 3126d90f7b1304c41b7105bc6723296a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: IEDie
+    clip: {fileID: 8300000, guid: c30a6861f42eaa647a1e9aeff679ba61, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: IAtk
+    clip: {fileID: 8300000, guid: d13207cc64d46f948a892198edb09e1f, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: IDie
+    clip: {fileID: 8300000, guid: acf9710c5c0eb4248be8cddf59127ba9, type: 3}
+    volume: 0.6
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: CAtk
+    clip: {fileID: 8300000, guid: 5aa7e1db11b14cb49af325a2c9c69cdb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CDie
+    clip: {fileID: 8300000, guid: acf9710c5c0eb4248be8cddf59127ba9, type: 3}
+    volume: 0.5
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
+  - name: MGAtk
+    clip: {fileID: 8300000, guid: 40122d9ae62aca2409260452b3c07a8d, type: 3}
+    volume: 0.5
+    pitch: 0.6
+    loop: 0
+    source: {fileID: 0}
+  - name: MGDie
+    clip: {fileID: 8300000, guid: 7573150e929d4874281083925fe3a227, type: 3}
+    volume: 0.5
+    pitch: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: MAtk1
+    clip: {fileID: 8300000, guid: bf23f395b21bf6a4c9a40a3d7064bfab, type: 3}
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: MAtk2
+    clip: {fileID: 8300000, guid: bf23f395b21bf6a4c9a40a3d7064bfab, type: 3}
+    volume: 1
+    pitch: 0.4
+    loop: 0
+    source: {fileID: 0}
+  - name: MDie
+    clip: {fileID: 8300000, guid: acf9710c5c0eb4248be8cddf59127ba9, type: 3}
+    volume: 1
+    pitch: 0.4
+    loop: 0
+    source: {fileID: 0}
+  - name: GAtk1
+    clip: {fileID: 8300000, guid: bf23f395b21bf6a4c9a40a3d7064bfab, type: 3}
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: GAtk2
+    clip: {fileID: 8300000, guid: fc7b5d0c79bc36744a9df84624d41b29, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GAtk3
+    clip: {fileID: 8300000, guid: dfb844dc209a86046870fbd8393a37c0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GDie
+    clip: {fileID: 8300000, guid: ab2f510aac74a0c459db08f21434c32f, type: 3}
+    volume: 1
+    pitch: 0.2
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 8300000, guid: 386b527850289324bad0537928984c7c, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

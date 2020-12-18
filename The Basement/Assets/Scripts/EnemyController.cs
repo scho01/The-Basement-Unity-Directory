@@ -46,12 +46,14 @@ public class EnemyController : MonoBehaviour
     public float dieTime;
     public bool ranged;
     public GameObject projectile;
+    private SpriteRenderer sr;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -184,7 +186,7 @@ public class EnemyController : MonoBehaviour
         {
             ChangeDirection(player.transform.position);
             if (ranged)
-                transform.position = Vector2.MoveTowards(transform.position, new Vector3(transform.position.x + (1f/(transform.position.x - player.transform.position.x)), player.transform.position.y, 0), speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector3(transform.position.x + (1f/(transform.position.x - player.transform.position.x + 0.0001f)), player.transform.position.y, 0), speed * Time.deltaTime);
             else
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
@@ -195,6 +197,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Hitstun()
     {
         invulnerable = true;
+        sr.color = new Color(0.7f, 0.7f, 0.7f);
         if (currentState != EnemyState.Attack)
         {
             currentState = EnemyState.Hit;
@@ -205,21 +208,19 @@ public class EnemyController : MonoBehaviour
             anim.SetBool("damage", false);
             yield return new WaitForSeconds(hitTime);
             speed = pspeed;
-            invulnerable = false;
             currentState = EnemyState.Follow;
         }
         else
-        {
             yield return new WaitForSeconds(hitTime);
-            invulnerable = false;
-        }
+        sr.color = new Color(1f, 1f, 1f);
+        invulnerable = false;
     }
 
     public void Hit()
     {
         if (!invulnerable)
         {
-            health -= PlayerController.attackDamage;
+            health -= PlayerController.playerStats[2];
             if (health <= 0)
                 StartCoroutine(Die());
             else
@@ -239,6 +240,7 @@ public class EnemyController : MonoBehaviour
             invulnerable = false;
             chooseDir = false;
             currentState = EnemyState.Idle;
+            lastAttack = Time.time;
         }
         else
         {

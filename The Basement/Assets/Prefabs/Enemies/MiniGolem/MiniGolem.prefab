@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3239227443102990839}
   - component: {fileID: 3456373948732599458}
   - component: {fileID: 5565044602207267234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiniGolem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3231790117576702525}
   - component: {fileID: 6365559535963928683}
   - component: {fileID: 4573081355586831791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attack
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}

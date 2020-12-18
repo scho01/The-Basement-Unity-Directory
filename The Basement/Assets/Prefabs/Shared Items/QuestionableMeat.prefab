@@ -96,21 +96,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Questionable Meat
-    itemDescription: 'Description: Meat procured and cooked through highly questionable
-      means... but what doesnt kill you makes you stronger, right?'
-    itemEffect: 'Effect: Take 1 damage, but increase maximum health by 1 and attack
-      damage by 0.5. If this damage is greater than your current health, current
-      health becomes 0.1.'
-    itemImage: {fileID: 21300000, guid: 45532783d1fa1cf4080b1327ec657359, type: 3}
-  maxHealthMod: 1
-  healthMod: -1
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 1
+  itemName: Questionable Meat
+  positiveEffects:
+  - Max HP +1
+  - Atk +1
+  negativeEffects:
+  - HP -1
+  itemDescription: Meat procured and cooked through highly questionable means...
+    but what doesnt kill you makes you stronger, right?
+  stats:
+  - 1
+  - -1
+  - 1
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
 --- !u!61 &6034903896823348846
 BoxCollider2D:

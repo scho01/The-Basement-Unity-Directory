@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public enum PlayerState
 {
@@ -15,31 +14,33 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
-    private PlayerController pc;
     private Vector3 change;
-    private float cspeed = 3;
+    private float cspeed = 3.5f;
     private bool dash = false;
-    private float dashSpeed = 12;
+    public float dashSpeed = 12;
     private float lastDash = -1f;
     private Vector3 attack;
     private float lastAttack = -1f;
+    private GameObject closestItem;
     public Text itemText;
+    public Text toggleText;
     private bool showItemDetails;
     private bool showStats;
     private bool useItem;
-    private bool quit;
     public PlayerState currentState;
     public int numItems = 0;
     public List<GameObject> items;
     private Vector3 bcoffset = new Vector3(0, -0.5f, 0);
-    private string itemName = "";
-    private string itemDescription = "";
+    private static bool autoUseToggle = false;
+    private PlayerController pc;
+    public static bool vScreen = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         pc = GetComponent<PlayerController>();
+        cspeed = PlayerController.playerStats[3];
     }
 
     void Update()
@@ -47,26 +48,42 @@ public class PlayerMovement : MonoBehaviour
         GetInputs();
         if (Input.GetKey(KeyCode.Return))
         {
-            PlayerController.attackDamage = 99;
-            PlayerController.attackSpeed = 0.1f;
+            PlayerController.playerStats[2] = 99;
+            PlayerController.playerStats[3] = 20;
+            PlayerController.playerStats[5] = 0.1f;
             PlayerController.invulnerable = true;
-            pc.UpdateStatsText();
+            cspeed = 20;
+            //pc.UpdateStatsText();
         }
-        if (quit)
-            Application.Quit();
-        pc.SetHealth();
-        if ((attack != Vector3.zero) && (Time.time > lastAttack + PlayerController.attackSpeed))
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            autoUseToggle = !autoUseToggle;
+            if (autoUseToggle)
+                toggleText.enabled = true;
+            else
+                toggleText.enabled = false;
+        }
+        //        if (quit)
+        //            Application.Quit();
+        if ((attack != Vector3.zero) && (Time.time > lastAttack + PlayerController.playerStats[5]))
             StartCoroutine(Attack());
         if (showStats)
             ShowStats(true);
         else
             ShowStats(false);
-        if (showItemDetails)
-            ShowItemDetails(true);
+        pc.SetHealth();
+        if (numItems > 0)
+        {
+            closestItem = FindClosestItem();
+            if (showItemDetails)
+                ShowItemDetails(true);
+            else
+                ShowItemDetails(false);
+            if (useItem || autoUseToggle)
+                UseItem();
+        }
         else
             ShowItemDetails(false);
-        if (useItem)
-            UseItem();
         UpdateAnimationAndMove();
     }
 
@@ -94,15 +111,15 @@ public class PlayerMovement : MonoBehaviour
         attack.y = Input.GetAxisRaw("AttackVertical");
         attack = Vector3.Normalize(attack);
         dash = Input.GetKey(KeyCode.LeftShift);
-        showItemDetails = Input.GetKey(KeyCode.LeftAlt);
+        showItemDetails = Input.GetKey(KeyCode.F);
         showStats = Input.GetKey(KeyCode.Tab);
-        useItem = Input.GetKeyDown(KeyCode.F);
-        quit = Input.GetKey(KeyCode.Escape);
+        useItem = Input.GetKeyDown(KeyCode.Space);
+//        quit = Input.GetKey(KeyCode.Escape);
     }
 
     void UpdateAnimationAndMove()
     {
-        if (dash && Time.time > lastDash + PlayerController.dashCoolDown)
+        if (dash && Time.time > lastDash + PlayerController.playerStats[6])
             StartCoroutine(Dash());
         if (change != Vector3.zero)
         {
@@ -129,9 +146,10 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerController.invulnerable = true;
         cspeed = dashSpeed;
-        yield return new WaitForSeconds(PlayerController.dashLength);
-        cspeed = PlayerController.moveSpeed;
-        PlayerController.invulnerable = false;
+        yield return new WaitForSeconds(PlayerController.playerStats[4]);
+        cspeed = PlayerController.playerStats[3];
+        if (!vScreen)
+            PlayerController.invulnerable = false;
         lastDash = Time.time;
     }
 
@@ -172,27 +190,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void ShowItemDetails(bool press)
     {
-        if (numItems > 0)
+        if (press)
         {
-            if (press)
+            itemText.enabled = true;
+            if (closestItem.CompareTag("Ladder"))
             {
-                itemText.enabled = true;
-                GameObject closest = FindClosestItem();
-                if (closest.CompareTag("Ladder"))
-                {
-                    itemName = closest.GetComponent<LadderController>().ladderName;
-                    itemDescription = closest.GetComponent<LadderController>().ladderDescription;
-                }
+                LadderController lc = closestItem.GetComponent<LadderController>();
+                if (RoomController.instance.currentFloorNum < 3)
+                    itemText.text = $"<size=48>{lc.ladderName}:</size>\n\n{lc.ladderDescription}";
                 else
-                {
-                    itemName = closest.GetComponent<CollectionController>().item.itemName;
-                    itemDescription = closest.GetComponent<CollectionController>().item.itemDescription + "\n" + closest.GetComponent<CollectionController>().item.itemEffect;
-                }
-                itemText.text = itemName + "\n" + itemDescription;
+                    itemText.text = $"<size=48>{lc.ladderName}:</size>\n\n{lc.reverseDescription}";
             }
             else
             {
-                itemText.enabled = false;
+                CollectionController cc = closestItem.GetComponent<CollectionController>();
+                itemText.text = $"<size=48>{cc.itemName}:</size>\n\n";
+                for (int i = 0; i < cc.positiveEffects.Length; i++)
+                    itemText.text += $"<color=lime>{cc.positiveEffects[i]}</color>\n";
+                for (int i = 0; i < cc.negativeEffects.Length; i++)
+                    itemText.text += $"<color=red>{cc.negativeEffects[i]}</color>\n";
+                itemText.text += "\n" + cc.itemDescription;
             }
         }
         else
@@ -203,18 +220,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void UseItem()
     {
-        if (numItems > 0)
+        if (closestItem.CompareTag("Ladder"))
         {
-            GameObject closest = FindClosestItem();
-            if (closest.CompareTag("Ladder"))
-            {
-                closest.GetComponent<LadderController>().Use();
-            }
-            else
-            {
-                closest.GetComponent<CollectionController>().Use();
-            }
-            pc.UpdateStatsText();
+            if (useItem)
+                closestItem.GetComponent<LadderController>().Use();
         }
+        else
+        {
+            closestItem.GetComponent<CollectionController>().Use();
+        }
+    }
+
+    public void ReadyForLoad()
+    {
+        numItems = 0;
+        items.Clear();
+        transform.position = Vector3.zero;
     }
 }

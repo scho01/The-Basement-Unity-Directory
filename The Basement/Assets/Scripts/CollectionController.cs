@@ -2,34 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
 [System.Serializable]
 public class Item
 {
     public string itemName;
+    public string[] positiveEffects;
+    public string[] negativeEffects;
     public string itemDescription;
-    public string itemEffect;
-    public Sprite itemImage;
-}
+    public float[] stats;
+/*  maxHealthMod;
+    healthMod;
+    attackDamageMod;
+    attackSpeedMod;
+    moveSpeedMod;
+    dashLengthMod;
+    dashCoolDownMod;*/
+//    public Sprite itemImage;
+//}
 
 public class CollectionController : MonoBehaviour
 {
-    public Item item;
-    public float maxHealthMod;
-    public float healthMod;
-    public float moveSpeedMod;
-    public float dashCoolDownMod;
-    public float dashLengthMod;
-    public float attackSpeedMod;
-    public float attackDamageMod;
+//    public Item item;
+    public string itemName;
+    public string[] positiveEffects;
+    public string[] negativeEffects;
+    public string itemDescription;
+    public float[] stats;
+    /*  maxHealthMod;       0
+        healthMod;          1
+        attackDamageMod;    2
+        moveSpeedMod;       3
+        dashLengthMod;      4
+        attackSpeedMod;     5
+        dashCoolDownMod;    6*/
+    //    public Sprite itemImage;
     public bool hover;
-    private PlayerMovement player;
+    private PlayerMovement pm;
+    private PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = item.itemImage;
+/*        gameObject.GetComponent<SpriteRenderer>().sprite = item.itemImage;
         gameObject.AddComponent<PolygonCollider2D>();
-        gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;*/
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        pm = player.GetComponent<PlayerMovement>();
+        pc = player.GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,8 +57,8 @@ public class CollectionController : MonoBehaviour
         {
             if (collision.CompareTag("Player") || collision.CompareTag("PlayerHitBox"))
             {
-                player.numItems++;
-                player.items.Add(gameObject);
+                pm.numItems++;
+                pm.items.Add(gameObject);
                 hover = true;
             }
         }
@@ -51,8 +70,8 @@ public class CollectionController : MonoBehaviour
         {
             if (collision.CompareTag("Player") || collision.CompareTag("PlayerHitBox"))
             {
-                player.numItems--;
-                player.items.Remove(gameObject);
+                pm.numItems--;
+                pm.items.Remove(gameObject);
                 hover = false;
             }
         }
@@ -60,7 +79,8 @@ public class CollectionController : MonoBehaviour
 
     public void Use()
     {
-        PlayerController.maxHealth += maxHealthMod;
+        pc.UseItem(stats, positiveEffects, negativeEffects);
+/*        PlayerController.maxHealth += maxHealthMod;
         if (PlayerController.maxHealth <= 0)
             PlayerController.maxHealth = 0.1f;
         PlayerController.health += healthMod;
@@ -72,7 +92,7 @@ public class CollectionController : MonoBehaviour
         PlayerController.dashCoolDown *= dashCoolDownMod;
         PlayerController.dashLength += dashLengthMod;
         PlayerController.attackSpeed *= attackSpeedMod;
-        PlayerController.attackDamage += attackDamageMod;
+        PlayerController.attackDamage += attackDamageMod;*/
         Destroy(gameObject);
     }
 }

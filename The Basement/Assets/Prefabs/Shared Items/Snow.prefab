@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768393813266311646}
   - component: {fileID: 1768393813266311645}
   - component: {fileID: 1768393813266311651}
-  - component: {fileID: -6479539320676441813}
+  - component: {fileID: -5181088854361497821}
   m_Layer: 0
   m_Name: Snow
   m_TagString: Untagged
@@ -96,23 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: A Small Pile of Snow
-    itemDescription: 'Description: The snow left behind by the ice elemental. Not
-      particularly useful, aside from making your hands cold. I guess you could try
-      eating it like a snowcone?'
-    itemEffect: 'Effect: Restore 0.2 health, but reduce movement speed by 0.05.'
-    itemImage: {fileID: 21300000, guid: 04aaa5a4282640742a2b611b73ec8c9f, type: 3}
-  maxHealthMod: 0
-  healthMod: 0.2
-  moveSpeedMod: -0.05
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 0
+  itemName: A Small Pile of Snow
+  positiveEffects:
+  - HP +0.1
+  negativeEffects: []
+  itemDescription: The snow left behind by the ice elemental. Not particularly useful,
+    aside from making your hands cold. Might taste good as a snowcone?
+  stats:
+  - 0
+  - 0.1
+  - 0
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
---- !u!58 &-6479539320676441813
-CircleCollider2D:
+--- !u!61 &-5181088854361497821
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,6 +124,16 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.065261245}
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.3645724
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0

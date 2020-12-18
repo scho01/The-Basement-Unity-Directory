@@ -96,19 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Bread
-    itemDescription: 'Description: Bread found in one of the Minotaur''s pouches.
-      Questionable freshness.'
-    itemEffect: 'Effect: Increase maximum health by 1 and restore 1 health.'
-    itemImage: {fileID: 21300000, guid: ed28d573178bd0e43aad52c88d89314e, type: 3}
-  maxHealthMod: 1
-  healthMod: 1
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 0
+  itemName: Moderately Stale Bread
+  positiveEffects:
+  - Max HP +1
+  - HP +1
+  negativeEffects: []
+  itemDescription: Bread found in one of the Minotaur's pouches. Dry and tough, but
+    edible.
+  stats:
+  - 1
+  - 1
+  - 0
+  - 0
+  - 0
+  - 1
+  - 1
   hover: 0
 --- !u!61 &4536043411818425562
 BoxCollider2D:
@@ -123,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.024239719}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,5 +136,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.7515205}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

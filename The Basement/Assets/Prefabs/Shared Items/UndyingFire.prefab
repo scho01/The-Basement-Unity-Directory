@@ -96,20 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Undying Fire
-    itemDescription: 'Description: A piece of the fire elemental you managed to take
-      off. The fire never seems to go out.'
-    itemEffect: 'Effect: Increase attack damage by 1, but decrease maximum health
-      by 1. If maximum health reaches 0 or lower, maximum health becomes 0.1.'
-    itemImage: {fileID: 21300000, guid: 26fb3a299db87ea47b210726308199cd, type: 3}
-  maxHealthMod: -1
-  healthMod: 0
-  moveSpeedMod: 0
-  dashCoolDownMod: 1
-  dashLengthMod: 0
-  attackSpeedMod: 1
-  attackDamageMod: 1
+  itemName: Undying Fire
+  positiveEffects:
+  - Attack CD -10%
+  negativeEffects:
+  - Max HP -1
+  itemDescription: A part of the fire that somehow didn't go out as the fire elemental
+    turned to ash. It appears to be self-sustaining itself somehow.
+  stats:
+  - -1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0.9
+  - 1
   hover: 0
 --- !u!61 &2660220500510950937
 BoxCollider2D:
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0.0055939555}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,5 +136,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55387247, y: 0.65456116}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0

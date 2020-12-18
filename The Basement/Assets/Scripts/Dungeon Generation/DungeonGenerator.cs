@@ -5,13 +5,17 @@ using UnityEngine;
 public class DungeonGenerator : MonoBehaviour
 {
     public DungeonGenerationData dungeonGenerationData;
+    public DungeonGenerationData dungeonGenerationData2;
     private List<Vector2Int> dungeonRooms;
     public static bool reset = true;
 
     private void Start()
     {
         StartCoroutine(RoomController.instance.FadeToBlack(true));
-        dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonGenerationData);
+        if (RoomController.instance.currentFloorNum == 1)
+            dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonGenerationData);
+        else
+            dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonGenerationData2);
         SpawnRooms(dungeonRooms);
     }
 

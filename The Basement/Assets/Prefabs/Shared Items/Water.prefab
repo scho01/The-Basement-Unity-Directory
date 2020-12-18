@@ -96,20 +96,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06279be07eb2f054fa7799305ce38fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemName: Water
-    itemDescription: 'Description: Water from the melted ice elemental. Safe to drink.
-      Probably.'
-    itemEffect: 'Effect: Decrease dash and attack cool down by 2%. Increase dash
-      duration by 0.01 seconds and movement speed by 0.1.'
-    itemImage: {fileID: 21300000, guid: bfee17bfacbb0f341a05591fd5a997cb, type: 3}
-  maxHealthMod: 0
-  healthMod: 0
-  moveSpeedMod: 0.1
-  dashCoolDownMod: 0.98
-  dashLengthMod: 0.01
-  attackSpeedMod: 0.98
-  attackDamageMod: 0
+  itemName: Ice Cold Water
+  positiveEffects:
+  - Atk CD -2%
+  - Spd +0.1
+  - Dash Duration +0.01 s
+  - Dash CD -2%
+  negativeEffects: []
+  itemDescription: Water fresh from the melted ice elemental. Safe to drink, probably.
+  stats:
+  - 0
+  - 0
+  - 0
+  - 0.1
+  - 0.01
+  - 0.98
+  - 0.98
   hover: 0
 --- !u!61 &8880971768653477120
 BoxCollider2D:
@@ -124,7 +126,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0055938363, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,5 +137,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.40843332, y: 0.8}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
