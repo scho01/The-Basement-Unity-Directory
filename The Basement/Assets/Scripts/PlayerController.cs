@@ -147,31 +147,31 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
             yield return new WaitForSeconds(0.1f);
             sr.color = new Color(1f, 1f, 1f);
             yield return new WaitForSeconds(0.1f);
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
             yield return new WaitForSeconds(0.1f);
             sr.color = new Color(1f, 1f, 1f);
             yield return new WaitForSeconds(0.1f);
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
             yield return new WaitForSeconds(0.1f);
             sr.color = new Color(1f, 1f, 1f);
             yield return new WaitForSeconds(0.1f);
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
             yield return new WaitForSeconds(0.1f);
-            sr.color = new Color(1f, 1f, 1f);
-            yield return new WaitForSeconds(0.05f);
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
-            yield return new WaitForSeconds(0.05f);
             sr.color = new Color(1f, 1f, 1f);
             yield return new WaitForSeconds(0.05f);
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
             yield return new WaitForSeconds(0.05f);
             sr.color = new Color(1f, 1f, 1f);
             yield return new WaitForSeconds(0.05f);
-            sr.color = new Color(0.7f, 0.7f, 0.7f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(1f, 1f, 1f);
+            yield return new WaitForSeconds(0.05f);
+            sr.color = new Color(0.5f, 0.5f, 0.5f);
             yield return new WaitForSeconds(0.05f);
             sr.color = new Color(1f, 1f, 1f);
             invulnerable = false;

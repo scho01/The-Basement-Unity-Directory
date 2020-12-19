@@ -135,7 +135,7 @@ public class MinotaurController : MonoBehaviour
     private IEnumerator Hitstun()
     {
         invulnerable = true;
-        sr.color = new Color(0.7f, 0.7f, 0.7f);
+        sr.color = new Color(0.5f, 0.5f, 0.5f);
         RoomController.instance.UpdateBossHealth("Minotaur", health, maxHealth);
         if (currentState != BossState.Attack)
         {

@@ -46,13 +46,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         GetInputs();
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Backspace))
         {
             PlayerController.playerStats[2] = 99;
-            PlayerController.playerStats[3] = 20;
+            PlayerController.playerStats[3] = 15;
             PlayerController.playerStats[5] = 0.1f;
             PlayerController.invulnerable = true;
-            cspeed = 20;
+            cspeed = 15;
             //pc.UpdateStatsText();
         }
         if (Input.GetKeyDown(KeyCode.R))

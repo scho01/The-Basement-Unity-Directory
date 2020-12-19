@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private static bool firstLoad = true;
-    public GameObject startGameButton;
-    public GameObject resumeButton;
+//    public static bool firstLoad = true;
+//    public GameObject startGameButton;
+    //public GameObject resumeButton;
     public void PlayGame()
     {
-        if (!firstLoad)
+        if (!AudioController.firstLoad)
         {
             PlayerController.ResetStats();
             DungeonGenerator.reset = true;
         }
-        firstLoad = false;
+        AudioController.firstLoad = true;
         SceneManager.LoadScene(1);
     }
 

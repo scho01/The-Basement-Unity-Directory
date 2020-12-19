@@ -6,6 +6,7 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
     public Sound[] sounds;
+    public static bool firstLoad = true;
     // Start is called before the first frame update
     void Awake()
     {

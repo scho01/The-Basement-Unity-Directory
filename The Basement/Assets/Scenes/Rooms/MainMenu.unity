@@ -188,24 +188,24 @@ MonoBehaviour:
     - Use the nearest item or ladder within a small radius. \n<size=56><b>f</b></size>
     - show the details of the nearest item or ladder within a small radius.\n<size=56><b>r</b></size>
     - toggle automatic item pick up. does not interact with ladders automatically.\n<size=56><b>Tab</b></size>
-    - Show current detailed stats.\n<size=56><b>esc</b></size> - open pause menu.\n\n<size=56><b>Enter/Return</b></size>
-    - Player's Atk = 99, AtkCD = 0, Spd = 20, and grants invulnerability to attacks.
+    - Show current detailed stats.\n<size=56><b>esc</b></size> - open pause menu.\n\n<size=56><b>Backspace</b></size>
+    - Player's Atk = 99, AtkCD = 0.1, Spd = 20, and grants invulnerability to attacks.
     <i><b>Only used for testing purposes. Not representative of real gameplay.</b></i>
-    Players may get stuck in walls in this mode, due to excessive Spd.\n\n<size=72>Stats:</size>\n<size=56><b>maximum
-    hit points (max hp)</b></size> - the maximum number of hit points the player
-    can hold at a time. this value cannot fall below 0.1.\n<size=56><b>current hit
-    points (hp)</b></size> - the player will die upon this value reaching 0.\n<size=56><b>attack
-    damage (atk)</b></size> - the amount of damage inflicted by the player onto an
-    enemy each time an attack connects. this value cannot fall below 0.1.\n<size=56><b>attack
-    cooldown (atk cd)</b></size> - the time in seconds it takes after launching an
-    attack in order to be able to launch the next attack. this value cannot fall
-    below 0.\n<size=56><b>movement speed (spd)</b></size> - the maximum speed the
-    player can travel at using normal movement. this value cannot fall below 0.1
-    or exceed 15.\n<size=56><b>dash duration (dash time)</b></size> - the time in
-    seconds each dash lasts for. increasing this value increases both the invulnerable
-    period of the dash and the dash distance.\n<size=56><b>dash cooldown (dash cd)</b></size>
-    - the time in seconds after the last dash has ended before a new dash input will
-    be accepted. this value cannot fall below 0."
+    It is possible for players to get stuck in walls in this mode due to excessive
+    Spd.\n\n<size=72>Stats:</size>\n<size=56><b>maximum hit points (max hp)</b></size>
+    - the maximum number of hit points the player can hold at a time. this value
+    cannot fall below 0.1.\n<size=56><b>current hit points (hp)</b></size> - the
+    player will die upon this value reaching 0.\n<size=56><b>attack damage (atk)</b></size>
+    - the amount of damage inflicted by the player onto an enemy each time an attack
+    connects. this value cannot fall below 0.1.\n<size=56><b>attack cooldown (atk
+    cd)</b></size> - the time in seconds it takes after launching an attack in order
+    to be able to launch the next attack. this value cannot fall below 0.\n<size=56><b>movement
+    speed (spd)</b></size> - the maximum speed the player can travel at using normal
+    movement. this value cannot fall below 0.1 or exceed 15.\n<size=56><b>dash duration
+    (dash time)</b></size> - the time in seconds each dash lasts for. increasing
+    this value increases both the invulnerable period of the dash and the dash distance.\n<size=56><b>dash
+    cooldown (dash cd)</b></size> - the time in seconds after the last dash has ended
+    before a new dash input will be accepted. this value cannot fall below 0."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1373,8 +1373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54302c2ee043444fa330105f8215f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGameButton: {fileID: 0}
-  resumeButton: {fileID: 1484057430}
 --- !u!1 &1211282929
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,6 +55,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Button.cs" />
+    <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Text.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\CanvasScaler.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMaskable.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\VertexHelper.cs" />
@@ -62,7 +64,6 @@
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\MoveDirection.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontUpdateTracker.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInputModule.cs" />
-    <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Text.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Scrollbar.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\ExecuteEvents.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\PositionAsUV1.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskUtilities.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ScrollRect.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\StencilMaterial.cs" />
-    <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Button.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutRebuilder.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RawImage.cs" />
     <Compile Include="D:\SeungJun\Downloads (1)\Unity\2020.1.7f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpriteState.cs" />

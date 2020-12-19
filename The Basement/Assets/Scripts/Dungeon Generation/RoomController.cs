@@ -23,7 +23,7 @@ public class RoomController : MonoBehaviour
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
     public List<Room> loadedRooms = new List<Room>();
     bool isLoadingRoom = false;
-    bool spawnedBossRoom = false;
+    public bool spawnedBossRoom = true;
     bool updatedRooms = false;
     public Image blackScreen;
     public Text loadingText;
@@ -31,6 +31,7 @@ public class RoomController : MonoBehaviour
     public Text bossText;
     public Slider bossHealth;
     public bool bossDead = false;
+    public Text backgroundStory;
 
     private void Awake()
     {
@@ -126,7 +127,13 @@ public class RoomController : MonoBehaviour
             bossDead = false;
             PlayerMovement.vScreen = false;
             PlayerController.invulnerable = false;
-            StartCoroutine(FadeToBlack(false));
+            if (!AudioController.firstLoad)
+                StartCoroutine(FadeToBlack(false));
+            else
+            {
+                loadingText.enabled = false;
+                backgroundStory.text += $"\n\n<size=96>Press the Spacebar to Continue</size>";
+            }
         }
     }
 
